@@ -2,7 +2,7 @@ import React from 'react'
 import { useColorsContext } from '../context/ColorsContext'
 
 const Corners = () => {
-  const { state } = useColorsContext()
+  const { dispatch, state } = useColorsContext()
   function changeColor(partOne: any, materialOne: any) {
     Unlimited3D.changeMaterials(
       {
@@ -17,9 +17,10 @@ const Corners = () => {
     )
   }
 
-  const showSpecificColors = () => {
-    return state.initialComponent !== 'corners' &&
-      state.initialComponent !== null
+  const showSpecificColors = (color: string) => {
+    return state.initialComponent !== 'corners-color' &&
+      state.initialComponent !== null &&
+      color !== state.colorSelected
       ? 'hidden'
       : 'visible'
   }
@@ -39,10 +40,13 @@ const Corners = () => {
       <div className='grid grid-cols-3'>
         <button
           onClick={() =>
-            changeColor(
-              ['Corners_base', 'Corners_cover'],
-              'Chrome MIDNIGHT BLACK'
-            )
+            dispatch({
+              type: 'corners-color/black',
+              payload: {
+                cornersColorsParts: ['Corners_base', 'Corners_cover'],
+                cornersColor: 'Chrome MIDNIGHT BLACK',
+              },
+            })
           }
         >
           <svg
@@ -78,9 +82,15 @@ const Corners = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('red')}
           onClick={() =>
-            changeColor(['Corners_base', 'Corners_cover'], 'Chrome CHERRY RED')
+            dispatch({
+              type: 'corners-color/red',
+              payload: {
+                cornersColorsParts: ['Corners_base', 'Corners_cover'],
+                cornersColor: 'Chrome CHERRY RED',
+              },
+            })
           }
         >
           <svg
@@ -110,9 +120,19 @@ const Corners = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('blue')}
           onClick={() =>
-            changeColor(['Corners_base', 'Corners_cover'], 'Chrome ROYAL BLUE')
+            dispatch({
+              type: 'corners-color/blue',
+              payload: {
+                cornersColorsParts: ['Corners_base', 'Corners_cover'],
+                cornersColor: 'Chrome ROYAL BLUE',
+                // initialComponent:
+                //   state.initialComponent === 'corners_color'
+                //     ? 'corners_color'
+                //     : state.initialComponent,
+              },
+            })
           }
         >
           <svg
@@ -136,7 +156,13 @@ const Corners = () => {
         </button>
         <button
           onClick={() =>
-            changeColor(['Corners_base', 'Corners_cover'], 'Chrome ALUMINIUM')
+            dispatch({
+              type: 'corners-color/aluminium',
+              payload: {
+                cornersColorsParts: ['Corners_base', 'Corners_cover'],
+                cornersColor: 'Chrome ALUMINIUM',
+              },
+            })
           }
         >
           <svg
@@ -151,12 +177,19 @@ const Corners = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('green')}
           onClick={() =>
-            changeColor(
-              ['Corners_base', 'Corners_cover'],
-              'Chrome SATIN OLIVE GREEN'
-            )
+            dispatch({
+              type: 'corners-color/green',
+              payload: {
+                cornersColorsParts: ['Corners_base', 'Corners_cover'],
+                cornersColor: 'Chrome SATIN OLIVE GREEN',
+                // initialComponent:
+                //   state.initialComponent === 'corners_color'
+                //     ? 'corners_color'
+                //     : state.initialComponent,
+              },
+            })
           }
         >
           <svg
@@ -173,17 +206,19 @@ const Corners = () => {
           </svg>
         </button>
         <button
-          className={
-            state.initialComponent! == 'corners' &&
-            state.initialComponent !== null
-              ? 'visible'
-              : 'hidden'
-          }
+          className={showSpecificColors('orange')}
           onClick={() =>
-            changeColor(
-              ['Corners_base', 'Corners_cover'],
-              'Chrome SATIN BURNT ORANGE'
-            )
+            dispatch({
+              type: 'corners-color/orange',
+              payload: {
+                cornersColorsParts: ['Corners_base', 'Corners_cover'],
+                cornersColor: 'Chrome SATIN BURNT ORANGE',
+                // initialComponent:
+                //   state.initialComponent === 'corners_color'
+                //     ? 'corners_color'
+                //     : state.initialComponent,
+              },
+            })
           }
         >
           <svg

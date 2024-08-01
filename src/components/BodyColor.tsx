@@ -3,31 +3,14 @@ import { useColorsContext } from '../context/ColorsContext'
 const BodyColor = () => {
   const { state, dispatch } = useColorsContext()
 
-  const check = () => {
-    console.log(state)
-    dispatch({
-      type: 'body-color/aluminium',
-      payload: {
-        bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
-        bodyColor: '06 CHROME SATIN ALUMINUM',
-        initialComponent: 'bodyColor',
-      },
-    })
+  const showSpecificColors = (color: string) => {
+    return state.initialComponent !== 'body-color' &&
+      state.initialComponent !== null &&
+      color !== state.colorSelected
+      ? 'hidden'
+      : 'visible'
   }
 
-  //   function changeColor(partOne: any, materialOne: any) {
-  //     Unlimited3D.changeMaterials(
-  //       {
-  //         partObjects: [
-  //           {
-  //             parts: [partOne[0], partOne[1]],
-  //             material: materialOne,
-  //           },
-  //         ],
-  //       },
-  //       () => {}
-  //     )
-  //   }
   return (
     <div
       id='colors'
@@ -49,7 +32,6 @@ const BodyColor = () => {
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '06 CHROME SATIN ALUMINUM',
-                initialComponent: 'bodyColor',
               },
             })
           }
@@ -99,7 +81,7 @@ const BodyColor = () => {
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '05 CHROME SATIN MIDNIGHT BLACK',
-                initialComponent: 'bodyColor',
+                initialComponent: 'body_color',
               },
             })
           }
@@ -143,13 +125,13 @@ const BodyColor = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors('red')}
           onClick={() =>
             dispatch({
               type: 'body-color/red',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '04 CHROME SATIN CHERRY RED',
-                initialComponent: 'bodyColor',
               },
             })
           }
@@ -180,13 +162,13 @@ const BodyColor = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors('blue')}
           onClick={() =>
             dispatch({
               type: 'body-color/blue',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '01 CHROME SATIN ROYAL BLUE',
-                initialComponent: 'bodyColor',
               },
             })
           }
@@ -218,13 +200,13 @@ const BodyColor = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors('green')}
           onClick={() =>
             dispatch({
               type: 'body-color/green',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '02 CHROME SATIN OLIVE GREEN',
-                initialComponent: 'bodyColor',
               },
             })
           }
@@ -255,13 +237,14 @@ const BodyColor = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors('orange')}
           onClick={() =>
             dispatch({
               type: 'body-color/orange',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '03 CHROME SATIN BURNT ORANGE',
-                initialComponent: 'bodyColor',
+                initialComponent: 'body_color',
               },
             })
           }

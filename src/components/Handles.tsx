@@ -3,9 +3,10 @@ import { useColorsContext } from '../context/ColorsContext'
 
 const Handles = () => {
   const { state } = useColorsContext()
-  const showSpecificColors = () => {
+  const showSpecificColors = (color: string) => {
     return state.initialComponent !== 'handles' &&
-      state.initialComponent !== null
+      state.initialComponent !== null &&
+      color !== state.colorSelected
       ? 'hidden'
       : 'visible'
   }
@@ -77,7 +78,7 @@ const Handles = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('red')}
           onClick={() =>
             changeColor(
               ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
@@ -112,7 +113,7 @@ const Handles = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('blue')}
           onClick={() =>
             changeColor(
               ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
@@ -159,7 +160,7 @@ const Handles = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('green')}
           onClick={() =>
             changeColor(
               ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
@@ -181,7 +182,7 @@ const Handles = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('orange')}
           onClick={() =>
             changeColor(
               ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],

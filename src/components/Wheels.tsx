@@ -3,9 +3,10 @@ import { useColorsContext } from '../context/ColorsContext'
 
 const Wheels = () => {
   const { state } = useColorsContext()
-  const showSpecificColors = () => {
-    return state.initialComponent !== 'corners' &&
-      state.initialComponent !== null
+  const showSpecificColors = (color: string) => {
+    return state.initialComponent !== 'wheels' &&
+      state.initialComponent !== null &&
+      color !== state.colorSelected
       ? 'hidden'
       : 'visible'
   }
@@ -88,7 +89,7 @@ const Wheels = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('red')}
           onClick={() =>
             changeColor(
               [
@@ -134,7 +135,7 @@ const Wheels = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('blue')}
           onClick={() =>
             changeColor(
               [
@@ -203,7 +204,7 @@ const Wheels = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('green')}
           onClick={() =>
             changeColor(
               [
@@ -236,7 +237,7 @@ const Wheels = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors()}
+          className={showSpecificColors('orange')}
           onClick={() =>
             changeColor(
               [

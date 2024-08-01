@@ -5,5 +5,7 @@ export type colorsState = {
 
 export const initialState: any = {
   initialComponent: null,
-  colorSelected: '',
+  colorSelected: 'aluminum',
+  resetInitialComponentColors: false,
+  lastTriggeredBy: [],
 }
