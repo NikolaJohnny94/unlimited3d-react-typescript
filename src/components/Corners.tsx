@@ -1,6 +1,8 @@
 import React from 'react'
+import { useColorsContext } from '../context/ColorsContext'
 
 const Corners = () => {
+  const { state } = useColorsContext()
   function changeColor(partOne: any, materialOne: any) {
     Unlimited3D.changeMaterials(
       {
@@ -13,6 +15,13 @@ const Corners = () => {
       },
       () => {}
     )
+  }
+
+  const showSpecificColors = () => {
+    return state.initialComponent !== 'corners' &&
+      state.initialComponent !== null
+      ? 'hidden'
+      : 'visible'
   }
   return (
     <div
@@ -69,6 +78,7 @@ const Corners = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(['Corners_base', 'Corners_cover'], 'Chrome CHERRY RED')
           }
@@ -100,6 +110,7 @@ const Corners = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(['Corners_base', 'Corners_cover'], 'Chrome ROYAL BLUE')
           }
@@ -140,6 +151,7 @@ const Corners = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               ['Corners_base', 'Corners_cover'],
@@ -161,6 +173,12 @@ const Corners = () => {
           </svg>
         </button>
         <button
+          className={
+            state.initialComponent! == 'corners' &&
+            state.initialComponent !== null
+              ? 'visible'
+              : 'hidden'
+          }
           onClick={() =>
             changeColor(
               ['Corners_base', 'Corners_cover'],

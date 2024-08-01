@@ -1,6 +1,14 @@
 import React from 'react'
+import { useColorsContext } from '../context/ColorsContext'
 
 const Handles = () => {
+  const { state } = useColorsContext()
+  const showSpecificColors = () => {
+    return state.initialComponent !== 'handles' &&
+      state.initialComponent !== null
+      ? 'hidden'
+      : 'visible'
+  }
   function changeColor(partOne: any, materialOne: any) {
     Unlimited3D.changeMaterials(
       {
@@ -69,6 +77,7 @@ const Handles = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
@@ -103,6 +112,7 @@ const Handles = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
@@ -149,6 +159,7 @@ const Handles = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
@@ -170,6 +181,7 @@ const Handles = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],

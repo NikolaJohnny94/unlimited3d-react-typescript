@@ -1,17 +1,33 @@
+import { useColorsContext } from '../context/ColorsContext'
+
 const BodyColor = () => {
-  function changeColor(partOne: any, materialOne: any) {
-    Unlimited3D.changeMaterials(
-      {
-        partObjects: [
-          {
-            parts: [partOne[0], partOne[1]],
-            material: materialOne,
-          },
-        ],
+  const { state, dispatch } = useColorsContext()
+
+  const check = () => {
+    console.log(state)
+    dispatch({
+      type: 'body-color/aluminium',
+      payload: {
+        bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
+        bodyColor: '06 CHROME SATIN ALUMINUM',
+        initialComponent: 'bodyColor',
       },
-      () => {}
-    )
+    })
   }
+
+  //   function changeColor(partOne: any, materialOne: any) {
+  //     Unlimited3D.changeMaterials(
+  //       {
+  //         partObjects: [
+  //           {
+  //             parts: [partOne[0], partOne[1]],
+  //             material: materialOne,
+  //           },
+  //         ],
+  //       },
+  //       () => {}
+  //     )
+  //   }
   return (
     <div
       id='colors'
@@ -28,10 +44,14 @@ const BodyColor = () => {
       <div className='grid grid-cols-3'>
         <button
           onClick={() =>
-            changeColor(
-              ['Body_metal_base', 'Body_metal_cover'],
-              '06 CHROME SATIN ALUMINUM'
-            )
+            dispatch({
+              type: 'body-color/aluminium',
+              payload: {
+                bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
+                bodyColor: '06 CHROME SATIN ALUMINUM',
+                initialComponent: 'bodyColor',
+              },
+            })
           }
         >
           <svg
@@ -74,10 +94,14 @@ const BodyColor = () => {
         </button>
         <button
           onClick={() =>
-            changeColor(
-              ['Body_metal_base', 'Body_metal_cover'],
-              '05 CHROME SATIN MIDNIGHT BLACK'
-            )
+            dispatch({
+              type: 'body-color/black',
+              payload: {
+                bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
+                bodyColor: '05 CHROME SATIN MIDNIGHT BLACK',
+                initialComponent: 'bodyColor',
+              },
+            })
           }
         >
           <svg
@@ -120,10 +144,14 @@ const BodyColor = () => {
         </button>
         <button
           onClick={() =>
-            changeColor(
-              ['Body_metal_base', 'Body_metal_cover'],
-              '04 CHROME SATIN CHERRY RED'
-            )
+            dispatch({
+              type: 'body-color/red',
+              payload: {
+                bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
+                bodyColor: '04 CHROME SATIN CHERRY RED',
+                initialComponent: 'bodyColor',
+              },
+            })
           }
         >
           <svg
@@ -153,10 +181,14 @@ const BodyColor = () => {
         </button>
         <button
           onClick={() =>
-            changeColor(
-              ['Body_metal_base', 'Body_metal_cover'],
-              '01 CHROME SATIN ROYAL BLUE'
-            )
+            dispatch({
+              type: 'body-color/blue',
+              payload: {
+                bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
+                bodyColor: '01 CHROME SATIN ROYAL BLUE',
+                initialComponent: 'bodyColor',
+              },
+            })
           }
         >
           <svg
@@ -187,10 +219,14 @@ const BodyColor = () => {
         </button>
         <button
           onClick={() =>
-            changeColor(
-              ['Body_metal_base', 'Body_metal_cover'],
-              '02 CHROME SATIN OLIVE GREEN'
-            )
+            dispatch({
+              type: 'body-color/green',
+              payload: {
+                bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
+                bodyColor: '02 CHROME SATIN OLIVE GREEN',
+                initialComponent: 'bodyColor',
+              },
+            })
           }
         >
           <svg
@@ -220,10 +256,14 @@ const BodyColor = () => {
         </button>
         <button
           onClick={() =>
-            changeColor(
-              ['Body_metal_base', 'Body_metal_cover'],
-              '03 CHROME SATIN BURNT ORANGE'
-            )
+            dispatch({
+              type: 'body-color/orange',
+              payload: {
+                bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
+                bodyColor: '03 CHROME SATIN BURNT ORANGE',
+                initialComponent: 'bodyColor',
+              },
+            })
           }
         >
           <svg

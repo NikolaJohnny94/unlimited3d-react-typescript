@@ -1,6 +1,14 @@
 import React from 'react'
+import { useColorsContext } from '../context/ColorsContext'
 
 const Wheels = () => {
+  const { state } = useColorsContext()
+  const showSpecificColors = () => {
+    return state.initialComponent !== 'corners' &&
+      state.initialComponent !== null
+      ? 'hidden'
+      : 'visible'
+  }
   function changeColor(partOne: any, materialOne: any) {
     Unlimited3D.changeMaterials(
       {
@@ -80,6 +88,7 @@ const Wheels = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               [
@@ -125,6 +134,7 @@ const Wheels = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               [
@@ -193,6 +203,7 @@ const Wheels = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               [
@@ -225,6 +236,7 @@ const Wheels = () => {
           </svg>
         </button>
         <button
+          className={showSpecificColors()}
           onClick={() =>
             changeColor(
               [
