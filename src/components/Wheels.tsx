@@ -2,9 +2,9 @@ import React from 'react'
 import { useColorsContext } from '../context/ColorsContext'
 
 const Wheels = () => {
-  const { state } = useColorsContext()
+  const { state, dispatch } = useColorsContext()
   const showSpecificColors = (color: string) => {
-    return state.initialComponent !== 'wheels' &&
+    return state.initialComponent !== 'WHEELS_COLOR' &&
       state.initialComponent !== null &&
       color !== state.colorSelected
       ? 'hidden'
@@ -39,21 +39,24 @@ const Wheels = () => {
       <div className='grid grid-cols-3'>
         <button
           onClick={() =>
-            changeColor(
-              [
-                'wheels_base',
-                'Wheels_base_cover',
-                'Wheels_front_right_base',
-                'Wheels_front_left_base',
-                'Wheels_back_right_base',
-                'Wheels_back_left_base',
-                'Wheels_front_right_center',
-                'Wheels_front_left_center',
-                'Wheels_back_right_center',
-                'Wheels_back_left_centar',
-              ],
-              'Chrome MIDNIGHT BLACK'
-            )
+            dispatch({
+              type: 'WHEELS_COLOR/BLACK',
+              payload: {
+                wheelsColorsParts: [
+                  'wheels_base',
+                  'Wheels_base_cover',
+                  'Wheels_front_right_base',
+                  'Wheels_front_left_base',
+                  'Wheels_back_right_base',
+                  'Wheels_back_left_base',
+                  'Wheels_front_right_center',
+                  'Wheels_front_left_center',
+                  'Wheels_back_right_center',
+                  'Wheels_back_left_centar',
+                ],
+                wheelsColor: 'Chrome MIDNIGHT BLACK',
+              },
+            })
           }
         >
           <svg
@@ -89,23 +92,26 @@ const Wheels = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('red')}
+          className={showSpecificColors('RED')}
           onClick={() =>
-            changeColor(
-              [
-                'wheels_base',
-                'Wheels_base_cover',
-                'Wheels_front_right_base',
-                'Wheels_front_left_base',
-                'Wheels_back_right_base',
-                'Wheels_back_left_base',
-                'Wheels_front_right_center',
-                'Wheels_front_left_center',
-                'Wheels_back_right_center',
-                'Wheels_back_left_centar',
-              ],
-              'Chrome CHERRY RED'
-            )
+            dispatch({
+              type: 'WHEELS_COLOR/RED',
+              payload: {
+                wheelsColorsParts: [
+                  'wheels_base',
+                  'Wheels_base_cover',
+                  'Wheels_front_right_base',
+                  'Wheels_front_left_base',
+                  'Wheels_back_right_base',
+                  'Wheels_back_left_base',
+                  'Wheels_front_right_center',
+                  'Wheels_front_left_center',
+                  'Wheels_back_right_center',
+                  'Wheels_back_left_centar',
+                ],
+                wheelsColor: 'Chrome CHERRY RED',
+              },
+            })
           }
         >
           <svg
@@ -135,23 +141,26 @@ const Wheels = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('blue')}
+          className={showSpecificColors('BLUE')}
           onClick={() =>
-            changeColor(
-              [
-                'wheels_base',
-                'Wheels_base_cover',
-                'Wheels_front_right_base',
-                'Wheels_front_left_base',
-                'Wheels_back_right_base',
-                'Wheels_back_left_base',
-                'Wheels_front_right_center',
-                'Wheels_front_left_center',
-                'Wheels_back_right_center',
-                'Wheels_back_left_centar',
-              ],
-              'Chrome ROYAL BLUE'
-            )
+            dispatch({
+              type: 'WHEELS_COLOR/BLUE',
+              payload: {
+                wheelsColorsParts: [
+                  'wheels_base',
+                  'Wheels_base_cover',
+                  'Wheels_front_right_base',
+                  'Wheels_front_left_base',
+                  'Wheels_back_right_base',
+                  'Wheels_back_left_base',
+                  'Wheels_front_right_center',
+                  'Wheels_front_left_center',
+                  'Wheels_back_right_center',
+                  'Wheels_back_left_centar',
+                ],
+                wheelsColor: 'Chrome ROYAL BLUE',
+              },
+            })
           }
         >
           <svg
@@ -175,21 +184,24 @@ const Wheels = () => {
         </button>
         <button
           onClick={() =>
-            changeColor(
-              [
-                'wheels_base',
-                'Wheels_base_cover',
-                'Wheels_front_right_base',
-                'Wheels_front_left_base',
-                'Wheels_back_right_base',
-                'Wheels_back_left_base',
-                'Wheels_front_right_center',
-                'Wheels_front_left_center',
-                'Wheels_back_right_center',
-                'Wheels_back_left_centar',
-              ],
-              'Chrome ALUMINIUM'
-            )
+            dispatch({
+              type: 'WHEELS_COLOR/ALUMINIUM',
+              payload: {
+                wheelsColorsParts: [
+                  'wheels_base',
+                  'Wheels_base_cover',
+                  'Wheels_front_right_base',
+                  'Wheels_front_left_base',
+                  'Wheels_back_right_base',
+                  'Wheels_back_left_base',
+                  'Wheels_front_right_center',
+                  'Wheels_front_left_center',
+                  'Wheels_back_right_center',
+                  'Wheels_back_left_centar',
+                ],
+                wheelsColor: 'Chrome ALUMINIUM',
+              },
+            })
           }
         >
           <svg
@@ -204,23 +216,26 @@ const Wheels = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('green')}
+          className={showSpecificColors('GREEN')}
           onClick={() =>
-            changeColor(
-              [
-                'wheels_base',
-                'Wheels_base_cover',
-                'Wheels_front_right_base',
-                'Wheels_front_left_base',
-                'Wheels_back_right_base',
-                'Wheels_back_left_base',
-                'Wheels_front_right_center',
-                'Wheels_front_left_center',
-                'Wheels_back_right_center',
-                'Wheels_back_left_centar',
-              ],
-              'Chrome SATIN OLIVE GREEN'
-            )
+            dispatch({
+              type: 'WHEELS_COLOR/GREEN',
+              payload: {
+                wheelsColorsParts: [
+                  'wheels_base',
+                  'Wheels_base_cover',
+                  'Wheels_front_right_base',
+                  'Wheels_front_left_base',
+                  'Wheels_back_right_base',
+                  'Wheels_back_left_base',
+                  'Wheels_front_right_center',
+                  'Wheels_front_left_center',
+                  'Wheels_back_right_center',
+                  'Wheels_back_left_centar',
+                ],
+                wheelsColor: 'Chrome SATIN OLIVE GREEN',
+              },
+            })
           }
         >
           <svg
@@ -237,23 +252,26 @@ const Wheels = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('orange')}
+          className={showSpecificColors('ORANGE')}
           onClick={() =>
-            changeColor(
-              [
-                'wheels_base',
-                'Wheels_base_cover',
-                'Wheels_front_right_base',
-                'Wheels_front_left_base',
-                'Wheels_back_right_base',
-                'Wheels_back_left_base',
-                'Wheels_front_right_center',
-                'Wheels_front_left_center',
-                'Wheels_back_right_center',
-                'Wheels_back_left_centar',
-              ],
-              'Chrome SATIN BURNT ORANGE'
-            )
+            dispatch({
+              type: 'WHEELS_COLOR/ORANGE',
+              payload: {
+                wheelsColorsParts: [
+                  'wheels_base',
+                  'Wheels_base_cover',
+                  'Wheels_front_right_base',
+                  'Wheels_front_left_base',
+                  'Wheels_back_right_base',
+                  'Wheels_back_left_base',
+                  'Wheels_front_right_center',
+                  'Wheels_front_left_center',
+                  'Wheels_back_right_center',
+                  'Wheels_back_left_centar',
+                ],
+                wheelsColor: 'Chrome SATIN BURNT ORANGE',
+              },
+            })
           }
         >
           <svg

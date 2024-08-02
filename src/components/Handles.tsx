@@ -2,9 +2,9 @@ import React from 'react'
 import { useColorsContext } from '../context/ColorsContext'
 
 const Handles = () => {
-  const { state } = useColorsContext()
+  const { state, dispatch } = useColorsContext()
   const showSpecificColors = (color: string) => {
-    return state.initialComponent !== 'handles' &&
+    return state.initialComponent !== 'HANDLES_COLOR' &&
       state.initialComponent !== null &&
       color !== state.colorSelected
       ? 'hidden'
@@ -39,10 +39,17 @@ const Handles = () => {
       <div className='grid grid-cols-3'>
         <button
           onClick={() =>
-            changeColor(
-              ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
-              'Chrome MIDNIGHT BLACK'
-            )
+            dispatch({
+              type: 'HANDLES_COLOR/BLACK',
+              payload: {
+                handlesColorsParts: [
+                  'Handle_base1',
+                  'Handle_metal-1',
+                  'Handle_telescope-1',
+                ],
+                handlesColor: 'Chrome MIDNIGHT BLACK',
+              },
+            })
           }
         >
           <svg
@@ -78,12 +85,19 @@ const Handles = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('red')}
+          className={showSpecificColors('RED')}
           onClick={() =>
-            changeColor(
-              ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
-              'Chrome CHERRY RED'
-            )
+            dispatch({
+              type: 'HANDLES_COLOR/RED',
+              payload: {
+                handlesColorsParts: [
+                  'Handle_base1',
+                  'Handle_metal-1',
+                  'Handle_telescope-1',
+                ],
+                handlesColor: 'Chrome CHERRY RED',
+              },
+            })
           }
         >
           <svg
@@ -113,12 +127,19 @@ const Handles = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('blue')}
+          className={showSpecificColors('BLUE')}
           onClick={() =>
-            changeColor(
-              ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
-              'Chrome ROYAL BLUE'
-            )
+            dispatch({
+              type: 'HANDLES_COLOR/BLUE',
+              payload: {
+                handlesColorsParts: [
+                  'Handle_base1',
+                  'Handle_metal-1',
+                  'Handle_telescope-1',
+                ],
+                handlesColor: 'Chrome ROYAL BLUE',
+              },
+            })
           }
         >
           <svg
@@ -142,10 +163,17 @@ const Handles = () => {
         </button>
         <button
           onClick={() =>
-            changeColor(
-              ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
-              'Chrome ALUMINIUM'
-            )
+            dispatch({
+              type: 'HANDLES_COLOR/ALUMINIUM',
+              payload: {
+                handlesColorsParts: [
+                  'Handle_base1',
+                  'Handle_metal-1',
+                  'Handle_telescope-1',
+                ],
+                handlesColor: 'Chrome ALUMINIUM',
+              },
+            })
           }
         >
           <svg
@@ -160,12 +188,19 @@ const Handles = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('green')}
+          className={showSpecificColors('GREEN')}
           onClick={() =>
-            changeColor(
-              ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
-              'Chrome SATIN OLIVE GREEN'
-            )
+            dispatch({
+              type: 'HANDLES_COLOR/GREEN',
+              payload: {
+                handlesColorsParts: [
+                  'Handle_base1',
+                  'Handle_metal-1',
+                  'Handle_telescope-1',
+                ],
+                handlesColor: 'Chrome SATIN OLIVE GREEN',
+              },
+            })
           }
         >
           <svg
@@ -182,12 +217,19 @@ const Handles = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('orange')}
+          className={showSpecificColors('ORANGE')}
           onClick={() =>
-            changeColor(
-              ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
-              'Chrome SATIN BURNT ORANGE'
-            )
+            dispatch({
+              type: 'HANDLES_COLOR/ORANGE',
+              payload: {
+                handlesColorsParts: [
+                  'Handle_base1',
+                  'Handle_metal-1',
+                  'Handle_telescope-1',
+                ],
+                handlesColor: 'Chrome SATIN BURNT ORANGE',
+              },
+            })
           }
         >
           <svg

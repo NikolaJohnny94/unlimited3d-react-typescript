@@ -4,7 +4,7 @@ const BodyColor = () => {
   const { state, dispatch } = useColorsContext()
 
   const showSpecificColors = (color: string) => {
-    return state.initialComponent !== 'body-color' &&
+    return state.initialComponent !== 'BODY_COLOR' &&
       state.initialComponent !== null &&
       color !== state.colorSelected
       ? 'hidden'
@@ -28,7 +28,7 @@ const BodyColor = () => {
         <button
           onClick={() =>
             dispatch({
-              type: 'body-color/aluminium',
+              type: 'BODY_COLOR/ALUMINIUM',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '06 CHROME SATIN ALUMINUM',
@@ -77,7 +77,7 @@ const BodyColor = () => {
         <button
           onClick={() =>
             dispatch({
-              type: 'body-color/black',
+              type: 'BODY_COLOR/BLACK',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '05 CHROME SATIN MIDNIGHT BLACK',
@@ -125,10 +125,10 @@ const BodyColor = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('red')}
+          className={showSpecificColors('RED')}
           onClick={() =>
             dispatch({
-              type: 'body-color/red',
+              type: 'BODY_COLOR/RED',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '04 CHROME SATIN CHERRY RED',
@@ -162,10 +162,10 @@ const BodyColor = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('blue')}
+          className={showSpecificColors('BLUE')}
           onClick={() =>
             dispatch({
-              type: 'body-color/blue',
+              type: 'BODY_COLOR/BLUE',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '01 CHROME SATIN ROYAL BLUE',
@@ -200,10 +200,10 @@ const BodyColor = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('green')}
+          className={showSpecificColors('GREEN')}
           onClick={() =>
             dispatch({
-              type: 'body-color/green',
+              type: 'BODY_COLOR/GREEN',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '02 CHROME SATIN OLIVE GREEN',
@@ -237,10 +237,10 @@ const BodyColor = () => {
           </svg>
         </button>
         <button
-          className={showSpecificColors('orange')}
+          className={showSpecificColors('ORANGE')}
           onClick={() =>
             dispatch({
-              type: 'body-color/orange',
+              type: 'BODY_COLOR/ORANGE',
               payload: {
                 bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                 bodyColor: '03 CHROME SATIN BURNT ORANGE',

@@ -14,10 +14,9 @@ export const ColorsProvider = ({ children }: Props) => {
   useEffect(() => {
     if (state.initialComponent !== null) {
       if (
-        state.initialComponent !== 'body-color' &&
-        state.lastTriggeredBy.includes('body-color')
+        state.initialComponent !== 'BODY_COLOR' &&
+        state.lastTriggeredBy.includes('BODY_COLOR')
       ) {
-        console.log('Hello?')
         changeColor(
           ['Body_metal_base', 'Body_metal_cover'],
           '06 CHROME SATIN ALUMINUM'
@@ -25,16 +24,15 @@ export const ColorsProvider = ({ children }: Props) => {
       }
 
       if (
-        state.initialComponent !== 'corners-color' &&
-        state.lastTriggeredBy.includes('corners-color')
+        state.initialComponent !== 'CORNERS_COLOR' &&
+        state.lastTriggeredBy.includes('CORNERS_COLOR')
       ) {
-        console.log('Hello?')
         changeColor(['Corners_base', 'Corners_cover'], 'Chrome ALUMINIUM')
       }
 
       if (
-        state.initialComponent !== 'handles_color' &&
-        state.lastTriggeredBy.includes('handles_color')
+        state.initialComponent !== 'HANDLES_COLOR' &&
+        state.lastTriggeredBy.includes('HANDLES_COLOR')
       ) {
         changeColor(
           ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
@@ -43,8 +41,8 @@ export const ColorsProvider = ({ children }: Props) => {
       }
 
       if (
-        state.initialComponent !== 'wheels_color' &&
-        state.lastTriggeredBy.includes('wheels_color')
+        state.initialComponent !== 'WHEELS_COLOR' &&
+        state.lastTriggeredBy.includes('WHEELS_COLOR')
       ) {
         changeColor(
           [
