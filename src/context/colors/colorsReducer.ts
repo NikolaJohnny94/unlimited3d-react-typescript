@@ -1,6 +1,5 @@
 import { initialState } from './initialState'
 import getLastTriggeredBy from './helpers/getLastTriggeredBy'
-import { defaultCameraModifier } from '../utils'
 
 export const colorsReducer = (state = initialState, action: any) => {
   switch (action.type) {

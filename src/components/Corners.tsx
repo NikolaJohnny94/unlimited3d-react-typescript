@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useColorsContext } from '../context/ColorsContext'
+import { useColorsContext } from '../context/colors/ColorsContext'
 import {
   showSpecificColors,
   cameraModifier,
@@ -294,6 +294,51 @@ export const Corners = () => {
             </g>
           </svg>
         </button>
+      </div>
+      <div className='flex justify-between p-6'>
+        <button
+          onClick={() => setCurrentCTA('handles')}
+          className=' translate-y-[2px]'
+          title='Previous'
+        >
+          <svg
+            width='25'
+            height='15'
+            viewBox='0 0 25 15'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M1 7.8821L7.375 14M1 7.8821L7.375 1M1 7.8821L25 7.8821'
+              stroke='#121010'
+              stroke-opacity='1'
+            />
+          </svg>
+        </button>
+
+        <div className='flex justify-center items-center'>
+          <span className='mr-2 text-[#121010] font-manrope text-base font-normal leading-[1.25]'>
+            Next
+          </span>
+          <button
+            onClick={() => setCurrentCTA('wheels')}
+            className=' translate-y-[2px]'
+            title='Next'
+          >
+            <svg
+              width='25'
+              height='15'
+              viewBox='0 0 25 15'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                d='M24 7.8821L17.625 14M24 7.8821L17.625 1M24 7.8821L0 7.8821'
+                stroke='#121010'
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   )

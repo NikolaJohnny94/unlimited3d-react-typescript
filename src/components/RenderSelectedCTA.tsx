@@ -1,11 +1,9 @@
-import type { FC } from 'react'
 import { BodyColor, Corners, Handles, Wheels } from '.'
+import { useColorsContext } from '../context/colors/ColorsContext'
 
-type Props = {
-  currentCTA: string | null
-}
+export const RenderSelectedCTA = () => {
+  const { currentCTA } = useColorsContext()
 
-export const RenderSelectedCTA: FC<Props> = ({ currentCTA }) => {
   switch (currentCTA) {
     case 'body':
       return <BodyColor />

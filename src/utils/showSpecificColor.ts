@@ -1,8 +1,8 @@
-import type { colorsState } from '../context/initialState'
+import type { ColorsState } from '../types/ColorsState.type'
 
 export const showSpecificColors = (
   initialComponent: string,
-  state: colorsState,
+  state: ColorsState,
   color: string
 ) => {
   return state.initialComponent !== initialComponent &&

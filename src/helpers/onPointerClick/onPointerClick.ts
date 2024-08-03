@@ -1,6 +1,6 @@
-import handleAnnotationsOnClick from './handleAnnotationsOnClick'
+import handleAnnotationsOnClick from './subHelpers/handleAnnotationsOnClick/handleAnnotationsOnClick'
 
-const onPointerClick = async (objectsClick: any) => {
+export const onPointerClick = async (objectsClick: any) => {
   if (objectsClick.length > 0) {
     if (objectsClick[0].type == 'annotation') {
       const promise = new Promise((resolve) => {
@@ -37,5 +37,3 @@ const onPointerClick = async (objectsClick: any) => {
     }
   }
 }
-
-export default onPointerClick

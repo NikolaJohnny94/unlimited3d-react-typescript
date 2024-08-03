@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from 'react'
 import { ColorsContext } from './ColorsContext'
 import { colorsReducer } from './colorsReducer'
 import { initialState } from './initialState'
-import { changeColor } from '../utils'
+import { changeColor } from '../../utils'
 
 type Props = {
   children: React.ReactElement
@@ -11,6 +11,7 @@ type Props = {
 export const ColorsProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(colorsReducer, initialState)
   const [currentCTA, setCurrentCTA] = useState<string | null>(null)
+  const [showCTAS, setShowCtas] = useState(true)
 
   useEffect(() => {
     if (state.initialComponent !== null) {
@@ -66,7 +67,14 @@ export const ColorsProvider = ({ children }: Props) => {
 
   return (
     <ColorsContext.Provider
-      value={{ state, currentCTA, dispatch, setCurrentCTA }}
+      value={{
+        state,
+        currentCTA,
+        showCTAS,
+        dispatch,
+        setCurrentCTA,
+        setShowCtas,
+      }}
     >
       {children}
     </ColorsContext.Provider>

@@ -1,4 +1,5 @@
-import { showAnnotations, hideAnnotations, changeAnnotationIcon } from './index'
+import { hideAnnotations, changeAnnotationIcon } from './subHelpers'
+import { showAnnotations } from '../../../../utils'
 
 const handleAnnotationsOnClick = (annotationClicked: string) => {
   switch (annotationClicked) {

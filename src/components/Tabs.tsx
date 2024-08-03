@@ -1,6 +1,12 @@
-import { hideAnnotations, showAnnotations } from '../utils'
+import { useColorsContext } from '../context/colors/ColorsContext'
+import {
+  defaultCameraModifier,
+  hideAnnotations,
+  showAnnotations,
+} from '../utils'
 
 export const Tabs = () => {
+  const { setShowCtas, setCurrentCTA } = useColorsContext()
   return (
     <div
       id='tabs'
@@ -8,18 +14,24 @@ export const Tabs = () => {
     >
       <div id='configurator' className='p-3 bg-white'>
         <button
-          onClick={() =>
-            hideAnnotations(['Open', 'Extend handle', 'Wheel spinner on'])
-          }
+          onClick={() => {
+            hideAnnotations(['Open', 'Extend handle', 'Wheel spinner on']),
+              setShowCtas(true),
+              defaultCameraModifier(),
+              setCurrentCTA(null)
+          }}
         >
           CONFIGURATOR
         </button>
       </div>
       <div id='animations' className='p-3 bg-white'>
         <button
-          onClick={() =>
-            showAnnotations(['Open', 'Extend handle', 'Wheel spinner on'])
-          }
+          onClick={() => {
+            showAnnotations(['Open', 'Extend handle', 'Wheel spinner on']),
+              setShowCtas(false),
+              defaultCameraModifier(),
+              setCurrentCTA(null)
+          }}
         >
           ANIMATIONS
         </button>

@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import initUnlimited3D from './client/init'
-import { useColorsContext } from './context/ColorsContext'
 import {
   RenderSelectedCTA,
   CTAButtons,
@@ -9,8 +8,6 @@ import {
 } from './components'
 
 function App() {
-  const { currentCTA, setCurrentCTA } = useColorsContext()
-
   useEffect(() => {
     initUnlimited3D()
   }, [])
@@ -20,9 +17,9 @@ function App() {
       {/* Configurator and Animations tabs */}
       <Tabs />
       {/* CTA buttons */}
-      <CTAButtons setCurrentCTA={setCurrentCTA} />
+      <CTAButtons />
       {/* Rendering color picker for selected CTA*/}
-      <RenderSelectedCTA currentCTA={currentCTA} />
+      <RenderSelectedCTA />
       {/* 3D model container with laoding spinner */}
       <ModelContainer />
     </div>

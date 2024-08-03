@@ -1,4 +1,4 @@
-import onPointerClick from './helpers/onPointerClick'
+import { onPointerClick } from './helpers'
 
 export const options = {
   distID: 'latest',

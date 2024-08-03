@@ -1,27 +1,45 @@
-import type { FC } from 'react'
+import { useColorsContext } from '../context/colors/ColorsContext'
 
-type Props = {
-  setCurrentCTA: (value: React.SetStateAction<string | null>) => void
-}
-
-export const CTAButtons: FC<Props> = ({ setCurrentCTA }) => {
+export const CTAButtons = () => {
+  const { currentCTA, showCTAS, setCurrentCTA } = useColorsContext()
   return (
     <div
-      id='ctas'
-      className='flex justify-center p-3 absolute bottom-[2.5%] left-1/2 transform -translate-x-1/2 translate-y-[2.5%]'
+      className={`flex p-3 absolute bottom-[2.5%] left-1/2 transform -translate-x-1/2 translate-y-[2.5%] gap-8 ${
+        showCTAS ? 'visible' : 'hidden'
+      }`}
     >
-      <div id='body' className='p-3 bg-white m-1 rounded-md'>
-        <button onClick={() => setCurrentCTA('body')}>BODY</button>
-      </div>
-      <div id='handles' className='p-3 bg-white m-1 rounded-md'>
-        <button onClick={() => setCurrentCTA('handles')}>HANDLES</button>
-      </div>
-      <div id='CORNERS' className='p-3 bg-white m-1 rounded-md'>
-        <button onClick={() => setCurrentCTA('corners')}>CORNERS</button>
-      </div>
-      <div id='WHEELS' className='p-3 bg-white m-1 rounded-md'>
-        <button onClick={() => setCurrentCTA('wheels')}>WHEELS</button>
-      </div>
+      <button
+        className='inline-flex pr-6 pl-[18px] py-3 justify-center items-center gap-2 rounded-lg bg-white h-[44px]'
+        onClick={() => setCurrentCTA('body')}
+      >
+        <span className='text-[#121010] font-manrope text-base font-normal leading-[1.25] tracking-[0.32px] uppercase h-[20px] flex gap-2'>
+          <input type='radio' checked={currentCTA === 'body'} /> BODY
+        </span>
+      </button>
+      <button
+        className='inline-flex pr-6 pl-[18px] py-3 justify-center items-center gap-2 rounded-lg bg-white h-[44px]'
+        onClick={() => setCurrentCTA('handles')}
+      >
+        <span className='text-[#121010] font-manrope text-base font-normal leading-[1.25] tracking-[0.32px] uppercase h-[20px] flex gap-2'>
+          <input type='radio' checked={currentCTA === 'handles'} /> HANDLES
+        </span>
+      </button>
+      <button
+        className='inline-flex pr-6 pl-[18px] py-3 justify-center items-center gap-2 rounded-lg bg-white h-[44px]'
+        onClick={() => setCurrentCTA('corners')}
+      >
+        <span className='text-[#121010] font-manrope text-base font-normal leading-[1.25] tracking-[0.32px] uppercase h-[20px] flex gap-2'>
+          <input type='radio' checked={currentCTA === 'corners'} /> CORNERS
+        </span>
+      </button>
+      <button
+        className='inline-flex pr-6 pl-[18px] py-3 justify-center items-center gap-2 rounded-lg bg-white h-[44px]'
+        onClick={() => setCurrentCTA('wheels')}
+      >
+        <span className='text-[#121010] font-manrope text-base font-normal leading-[1.25] tracking-[0.32px] uppercase h-[20px] flex gap-2'>
+          <input type='radio' checked={currentCTA === 'wheels'} /> WHEELS
+        </span>
+      </button>
     </div>
   )
 }

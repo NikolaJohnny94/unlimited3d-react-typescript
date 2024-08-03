@@ -1,4 +1,4 @@
-import { showAnnotations } from '../utils'
+import { showAnnotations } from '../../../../../utils'
 
 export const hideAnnotations = (annotationsToHide: string) => {
   switch (annotationsToHide) {
