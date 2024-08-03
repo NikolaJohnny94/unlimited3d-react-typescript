@@ -1,9 +1,6 @@
 export const handleAnnotationsOnClick = (annotationClicked: string) => {
   switch (annotationClicked) {
     case 'Open':
-      Unlimited3D.getAvailableAnnotations((error: any, result: any) => {
-        console.log(result)
-      })
       showAnnotations(['Close'])
       hideAnnotations('Open')
       changeAnnotationIcon('Close')
@@ -95,7 +92,6 @@ function hideAnnotations(annotationsToHide: string) {
 }
 
 function showAnnotations(annotationToShow: string[]) {
-  console.log('Annotations to show:', annotationToShow)
   Unlimited3D.showAnnotations({
     annotationObjects: [
       {
@@ -103,12 +99,9 @@ function showAnnotations(annotationToShow: string[]) {
       },
     ],
   })
-
-  //   Unlimited3D.changeAnnotationMaterial(changeAnnotationIcon(annotationToShow))
 }
 
 async function changeAnnotationIcon(annotationClicked: string) {
-  console.log(annotationClicked)
   const promise = new Promise((resolve) => {
     switch (annotationClicked) {
       case 'Close':
@@ -151,10 +144,5 @@ async function changeAnnotationIcon(annotationClicked: string) {
   })
 
   const annotationsToChange = await promise
-  console.log('Annotation', annotationsToChange)
   Unlimited3D.changeAnnotationMaterial(annotationsToChange)
-  //   Unlimited3D.changeAnnotationMaterial({
-  //     annotations: ['Close'],
-  //     material: 'Close locker',
-  //   })
 }

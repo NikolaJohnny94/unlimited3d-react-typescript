@@ -1,11 +1,11 @@
 export type colorsState = {
-  initialComponent: string | null
+  initialComponent: null | string
   colorSelected: string
+  lastTriggeredBy: string[]
 }
 
-export const initialState: any = {
+export const initialState: colorsState = {
   initialComponent: null,
   colorSelected: 'aluminum',
-  resetInitialComponentColors: false,
   lastTriggeredBy: [],
 }

@@ -1,8 +1,8 @@
-import { useEffect, useReducer } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import { ColorsContext } from './ColorsContext'
 import { colorsReducer } from './colorsReducer'
 import { initialState } from './initialState'
-import changeColor from '../utils/changeColor'
+import { changeColor } from '../utils'
 
 type Props = {
   children: React.ReactElement
@@ -10,6 +10,7 @@ type Props = {
 
 export const ColorsProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(colorsReducer, initialState)
+  const [currentCTA, setCurrentCTA] = useState<string | null>(null)
 
   useEffect(() => {
     if (state.initialComponent !== null) {
@@ -64,7 +65,9 @@ export const ColorsProvider = ({ children }: Props) => {
   }, [state.colorSelected])
 
   return (
-    <ColorsContext.Provider value={{ state, dispatch }}>
+    <ColorsContext.Provider
+      value={{ state, currentCTA, dispatch, setCurrentCTA }}
+    >
       {children}
     </ColorsContext.Provider>
   )

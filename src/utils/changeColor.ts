@@ -1,4 +1,4 @@
-const changeColor = (partOne: string[], materialOne: string) => {
+export const changeColor = (partOne: string[], materialOne: string) => {
   Unlimited3D.changeMaterials({
     partObjects: [
       {
@@ -8,5 +8,3 @@ const changeColor = (partOne: string[], materialOne: string) => {
     ],
   })
 }
-
-export default changeColor

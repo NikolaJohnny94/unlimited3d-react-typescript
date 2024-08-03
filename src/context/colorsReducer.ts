@@ -1,9 +1,6 @@
 import { initialState } from './initialState'
-
-// export const initialState: any = {
-//     initialComponent: null,
-//     colorSelected: '',
-//   }
+import getLastTriggeredBy from './helpers/getLastTriggeredBy'
+import { defaultCameraModifier } from '../utils'
 
 export const colorsReducer = (state = initialState, action: any) => {
   switch (action.type) {
@@ -20,20 +17,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'BODY_COLOR/BLACK':
       Unlimited3D.changeMaterials({
@@ -48,20 +39,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'BODY_COLOR/RED':
       console.log(state.colorSelected !== action.type.split('/')[1])
@@ -77,20 +62,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     case 'BODY_COLOR/BLUE':
@@ -106,20 +85,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'BODY_COLOR/GREEN':
       Unlimited3D.changeMaterials({
@@ -134,20 +107,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     case 'BODY_COLOR/ORANGE':
@@ -164,20 +131,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     //Corners
@@ -194,20 +155,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'CORNERS_COLOR/BLACK':
       Unlimited3D.changeMaterials({
@@ -222,20 +177,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'CORNERS_COLOR/RED':
       Unlimited3D.changeMaterials({
@@ -250,20 +199,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     case 'CORNERS_COLOR/BLUE':
@@ -279,20 +222,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'CORNERS_COLOR/GREEN':
       Unlimited3D.changeMaterials({
@@ -307,20 +244,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     case 'CORNERS_COLOR/ORANGE':
@@ -336,20 +267,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     //wheels
     case 'WHEELS_COLOR/ALUMINIUM':
@@ -365,20 +290,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'WHEELS_COLOR/BLACK':
       Unlimited3D.changeMaterials({
@@ -393,20 +312,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'WHEELS_COLOR/RED':
       Unlimited3D.changeMaterials({
@@ -421,20 +334,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     case 'WHEELS_COLOR/BLUE':
@@ -450,20 +357,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'WHEELS_COLOR/GREEN':
       Unlimited3D.changeMaterials({
@@ -478,20 +379,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     case 'WHEELS_COLOR/ORANGE':
@@ -507,20 +402,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     //handles
@@ -537,20 +426,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'HANDLES_COLOR/BLACK':
       Unlimited3D.changeMaterials({
@@ -565,20 +448,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'HANDLES_COLOR/RED':
       Unlimited3D.changeMaterials({
@@ -593,20 +470,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     case 'HANDLES_COLOR/BLUE':
@@ -622,20 +493,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     case 'HANDLES_COLOR/GREEN':
       Unlimited3D.changeMaterials({
@@ -650,20 +515,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
 
     case 'HANDLES_COLOR/ORANGE':
@@ -679,20 +538,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         ...state,
         initialComponent:
           state.initialComponent === null
-            ? action.type.split('/')[0]
+            ? (action.type.split('/')[0] as string)
             : state.initialComponent,
         colorSelected:
           state.initialComponent === null ||
           action.type.split('/')[0] === state.initialComponent
-            ? action.type.split('/')[1]
+            ? (action.type.split('/')[1] as string)
             : state.colorSelected,
-        resetInitialComponentColors:
-          state.colorSelected !== action.type.split('/')[1] ? true : false,
-        lastTriggeredBy:
-          !state.lastTriggeredBy ||
-          !state.lastTriggeredBy.includes(action.type.split('/')[0])
-            ? state.lastTriggeredBy.push(action.type.split('/')[0])
-            : state.lastTriggeredBy,
+        lastTriggeredBy: getLastTriggeredBy(state, action),
       }
     default:
       return state
