@@ -9,14 +9,15 @@ import { Carousel } from './Carousel'
 
 export const Handles = () => {
   const [color, setColor] = useState('ALUMINIUM')
-  const { state, dispatch, setCurrentCTA } = useColorsContext()
+  const { state, largeOrGreaterScreen, dispatch, setCurrentCTA } =
+    useColorsContext()
 
   useEffect(() => {
     cameraModifier('handles')
   }, [])
 
   const closeHandlesPanel = () => {
-    defaultCameraModifier()
+    defaultCameraModifier(largeOrGreaterScreen ? 'desktop' : 'mobile')
     setCurrentCTA(null)
   }
 

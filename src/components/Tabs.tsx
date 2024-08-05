@@ -8,8 +8,7 @@ import {
 import handleAnnotationsOnClick from '../helpers/onPointerClick/subHelpers/handleAnnotationsOnClick/handleAnnotationsOnClick'
 
 export const Tabs = () => {
-  const { setShowCtas, setCurrentCTA, setModifierTriggered } =
-    useColorsContext()
+  const { setShowCtas, setCurrentCTA } = useColorsContext()
   const [activeTab, setActiveTab] = useState('configurator')
 
   const handleLocalStorageAnnotationsModifier = () => {
@@ -66,7 +65,6 @@ export const Tabs = () => {
               defaultCameraModifier(),
               setCurrentCTA(null),
               setActiveTab('configurator')
-            // resetModifiers()
           }}
         >
           CONFIGURATOR

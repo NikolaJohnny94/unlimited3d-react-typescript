@@ -4,5 +4,4 @@ export const initialState: ColorsState = {
   initialComponent: null,
   colorSelected: 'aluminum',
   lastTriggeredBy: [],
-  modifierTriggered: '',
 }

@@ -6,10 +6,13 @@ import {
   ModelContainer,
   Tabs,
 } from './components'
+import { useColorsContext } from './context/colors/ColorsContext'
 
 function App() {
+  const { largeOrGreaterScreen } = useColorsContext()
+
   useEffect(() => {
-    initUnlimited3D()
+    initUnlimited3D(largeOrGreaterScreen)
   }, [])
 
   return (

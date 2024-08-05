@@ -1,19 +1,23 @@
 import { options } from '../consts'
-import { hideAnnotations } from '../utils'
+import { defaultCameraModifier, hideAnnotations } from '../utils'
 
-const initUnlimited3D = () =>
-  Unlimited3D.init(options, {}, function (error: any, status: any) {
-    if (error || !status) {
-      console.log(error)
+const initUnlimited3D = (largeOrGreaterScreen: boolean) =>
+  Unlimited3D.init(
+    options,
+    {},
+    function (error: any, status: { status: boolean }) {
+      if (error || !status) {
+        console.log(error)
+        return
+      }
 
-      return
+      if (status.status) {
+        hideAnnotations(['Open', 'Extend handle', 'Wheel spinner on'])
+        defaultCameraModifier(largeOrGreaterScreen ? 'desktop' : 'mobile')
+      }
+
+      loadingContent.style.display = 'none'
     }
-
-    if (status.status) {
-      hideAnnotations(['Open', 'Extend handle', 'Wheel spinner on'])
-    }
-
-    loadingContent.style.display = 'none'
-  })
+  )
 
 export default initUnlimited3D
