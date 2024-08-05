@@ -4,7 +4,8 @@ export const defaultCameraModifier = (screen: string) => {
       Unlimited3D.activateModifier({ modifier: 'default_camera_desktop' })
       break
     case 'mobile':
-      Unlimited3D.activateModifier({ modifier: 'default_camera_mobile' })
+      // default_camera_mobile modifier doesn't do anything so I put here also default_camera_desktop modifier
+      Unlimited3D.activateModifier({ modifier: 'default_camera_desktop' })
       break
   }
 }
