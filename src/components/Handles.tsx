@@ -5,6 +5,7 @@ import {
   cameraModifier,
   defaultCameraModifier,
 } from '../utils'
+import { Carousel } from './Carousel'
 
 export const Handles = () => {
   const [color, setColor] = useState('ALUMINIUM')
@@ -20,14 +21,13 @@ export const Handles = () => {
   }
 
   return (
-    <div
-      id='colors'
-      className='w-[280px] h-[515px] bg-white absolute top-1/2 right-[10%] transform translate-x-[10%] -translate-y-1/2 flex-shrink-0 rounded-md'
-    >
-      <div className='flex mt-[32px] mb-[24px] px-6'>
-        <div className='color-picker-heading mr-[24px]'>Handles Color</div>
-        <div
-          className=' w-[24px] h-[24px] flex-shrink-0 rounded-lg hover:bg-gray-100 cursor-pointer'
+    <div className='w-full lg:w-[280px] xl:w-[280px] xl:h-[515px] lg:h-[515px] md:h-[515px] h-[300px] bg-white absolute bottom-0 xl:top-[8%] xl:right-[3.5%] lg:top-[8%] lg:right-[2.5%] flex-shrink-0 rounded-md'>
+      <div className='flex justify-between mt-[32px] mb-[24px] px-6'>
+        <div className='color-picker-heading text-black text-base font-normal leading-normal'>
+          Handles Color
+        </div>
+        <button
+          className='text-black text-base font-normal leading-normal'
           onClick={closeHandlesPanel}
         >
           <svg
@@ -44,18 +44,18 @@ export const Handles = () => {
               fill='#121010'
             />
           </svg>
-        </div>
+        </button>
       </div>
-      <div className='flex w-[280px] mx-6 items-start flex-shrink-0'>
-        <div className='w-[92px] h-[25px] flex-shrink-0 text-black font-manrope text-base font-normal leading-normal mr-6'>
+      <div className='flex justify-between px-6 pb-6 '>
+        <div className='text-black text-base font-normal leading-normal !text-[18px]'>
           Select Color
         </div>
-        <div className='w-[116px] h-[25px] flex-shrink-0 text-black font-manrope text-base font-normal leading-normal text-left flex justify-end'>
+        <div className='text-black text-base font-normal leading-normal !text-[18px]'>
           {color}
         </div>
       </div>
       {/* Colors */}
-      <div className='grid grid-cols-3'>
+      <div className='hidden  lg:visible xl:visible lg:grid xl:grid lg:grid-cols-3 xl:grid-cols-3'>
         <button
           className='my-[16px] flex justify-center items-center'
           onClick={() => {
@@ -319,10 +319,12 @@ export const Handles = () => {
           </svg>
         </button>
       </div>
-      <div className='flex justify-between p-6'>
+      {/* Mobile carousel */}
+      <Carousel setColor={setColor} color={color} cta='handles' />
+      <div className='flex justify-between p-6 mt-[30px] lg:mt-[150px] xl:mt-[150px]'>
         <button
+          className='scale-100  transition active:scale-90 delay-75'
           onClick={() => setCurrentCTA('body')}
-          className=' translate-y-[2px]'
           title='Previous'
         >
           <svg
@@ -341,13 +343,13 @@ export const Handles = () => {
         </button>
 
         <div className='flex justify-center items-center'>
-          <span className='mr-2 text-[#121010] font-manrope text-base font-normal leading-[1.25] flex items-center justify-center'>
+          <span className='mr-2 text-[#121010] font-manrope text-base font-normal leading-[1.25] !text-[18px]'>
             Next
           </span>
           <button
             onClick={() => setCurrentCTA('corners')}
-            className=' translate-y-[2px]'
             title='Next'
+            className='scale-100  transition active:scale-90 delay-75'
           >
             <svg
               width='25'

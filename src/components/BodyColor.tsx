@@ -5,6 +5,7 @@ import {
   cameraModifier,
   defaultCameraModifier,
 } from '../utils'
+import { Carousel } from './Carousel'
 
 export const BodyColor = () => {
   const [color, setColor] = useState('ALUMINIUM')
@@ -20,11 +21,13 @@ export const BodyColor = () => {
   }
 
   return (
-    <div className='w-[280px] h-[415px] bg-white absolute top-[45%] right-[10%] transform translate-x-[10%] -translate-y-[45%] flex-shrink-0 rounded-md'>
-      <div className='flex mt-[32px] mb-[24px] px-6'>
-        <div className='color-picker-heading mr-[24px]'>BODY COLOR</div>
-        <div
-          className=' w-[24px] h-[24px] flex-shrink-0 rounded-lg hover:bg-gray-100 cursor-pointer'
+    <div className='w-full lg:w-[280px] xl:w-[280px] xl:h-[515px] lg:h-[515px] md:h-[515px] h-[375px] bg-white absolute bottom-0 xl:top-[8%] xl:right-[3.5%] lg:top-[8%] lg:right-[2.5%] flex-shrink-0 rounded-md'>
+      <div className='flex justify-between mt-[32px] mb-[24px] px-6'>
+        <div className='color-picker-heading text-black text-base font-normal leading-normal'>
+          Body Color
+        </div>
+        <button
+          className='text-black text-base font-normal leading-normal'
           onClick={closeBodyPanel}
         >
           <svg
@@ -41,18 +44,18 @@ export const BodyColor = () => {
               fill='#121010'
             />
           </svg>
-        </div>
+        </button>
       </div>
-      <div className='flex w-[280px] mx-6 items-start flex-shrink-0'>
-        <div className='w-[92px] h-[25px] flex-shrink-0 text-black font-manrope text-base font-normal leading-normal mr-6'>
+      <div className='flex justify-between px-6 pb-6 '>
+        <div className='text-black text-base font-normal leading-normal !text-[18px]'>
           Select Color
         </div>
-        <div className='w-[116px] h-[25px] flex-shrink-0 text-black font-manrope text-base font-normal leading-normal text-left flex justify-end'>
+        <div className='text-black text-base font-normal leading-normal !text-[18px]'>
           {color}
         </div>
       </div>
       {/* Colors */}
-      <div className='grid grid-cols-3'>
+      <div className='hidden  lg:visible xl:visible lg:grid xl:grid lg:grid-cols-3 xl:grid-cols-3'>
         <button
           className='my-[16px] flex justify-center items-center'
           onClick={() => {
@@ -355,9 +358,56 @@ export const BodyColor = () => {
           </svg>
         </button>
       </div>
+      {/* Mobile carousel */}
+      <Carousel setColor={setColor} color={color} cta='body' />
       <div className='flex justify-between p-6'>
-        <button onClick={() => setCurrentCTA('wheels')} title='Previous'>
+        <div className='text-black text-base font-normal leading-normal !text-[18px]'>
+          Image
+        </div>
+        <div className='text-black text-base font-normal leading-normal !text-[18px]'>
+          No Image
+        </div>
+      </div>
+      <div className='flex justify-between px-6'>
+        <div className='text-black text-base font-normal leading-normal w-[45px] !h-[45px]'>
           <svg
+            width='42'
+            height='42'
+            viewBox='0 0 42 42'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <circle cx='21.0001' cy='21.0001' r='20.5714' fill='#EFEFEF' />
+            <circle cx='21.0001' cy='21.0001' r='20.5714' stroke='#121010' />
+            <path d='M6.30371 35.5L36.9999 8' stroke='black' stroke-width='2' />
+          </svg>
+        </div>
+        <div className='flex !w-[45px] !h-[45px] p-5 items-center gap-2 flex-shrink-0 rounded-full border border-gray-300 bg-gray-100'>
+          <svg
+            width='20'
+            height='20'
+            viewBox='0 0 20 20'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M10 1V19M1 10H19'
+              stroke='#121010'
+              stroke-width='1.5'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+            />
+          </svg>
+        </div>
+      </div>
+      <div className='flex justify-between p-6 mt-[20px]'>
+        <button
+          className='scale-100  transition active:scale-90 delay-75'
+          onClick={() => setCurrentCTA('wheels')}
+          title='Previous'
+        >
+          <svg
+            className='w-4.5 h-4.5 absolute left-3.5 top-3.5 stroke-[1.5] stroke-[#121010]'
             width='25'
             height='15'
             viewBox='0 0 25 15'
@@ -373,10 +423,14 @@ export const BodyColor = () => {
         </button>
 
         <div className='flex justify-center items-center'>
-          <span className='mr-2 text-[#121010] font-manrope text-base font-normal leading-[1.25]'>
+          <span className='mr-2 text-[#121010] font-manrope text-base font-normal leading-[1.25] !text-[18px]'>
             Next
           </span>
-          <button onClick={() => setCurrentCTA('handles')} title='Next'>
+          <button
+            onClick={() => setCurrentCTA('handles')}
+            title='Next'
+            className='scale-100  transition active:scale-90 delay-75'
+          >
             <svg
               width='25'
               height='15'

@@ -12,6 +12,7 @@ export const ColorsProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(colorsReducer, initialState)
   const [currentCTA, setCurrentCTA] = useState<string | null>(null)
   const [showCTAS, setShowCtas] = useState(true)
+  const [modifierTriggered, setModifierTriggered] = useState<string>('')
 
   useEffect(() => {
     if (state.initialComponent !== null) {
@@ -71,9 +72,11 @@ export const ColorsProvider = ({ children }: Props) => {
         state,
         currentCTA,
         showCTAS,
+        modifierTriggered,
         dispatch,
         setCurrentCTA,
         setShowCtas,
+        setModifierTriggered,
       }}
     >
       {children}

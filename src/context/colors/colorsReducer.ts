@@ -546,6 +546,11 @@ export const colorsReducer = (state = initialState, action: any) => {
             : state.colorSelected,
         lastTriggeredBy: getLastTriggeredBy(state, action),
       }
+    case 'ANNOTATION_CLOSE':
+      return {
+        ...state,
+        modofierTriggered: 'CLOSE',
+      }
     default:
       return state
   }
