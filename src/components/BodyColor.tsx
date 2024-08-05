@@ -28,7 +28,7 @@ export const BodyColor = () => {
           Body Color
         </div>
         <button
-          className='text-black text-base font-normal leading-normal'
+          className='text-black text-base font-normal leading-normal scale-100 transition active:scale-90 delay-75'
           onClick={closeBodyPanel}
         >
           <svg
@@ -383,7 +383,7 @@ export const BodyColor = () => {
             <path d='M6.30371 35.5L36.9999 8' stroke='black' stroke-width='2' />
           </svg>
         </div>
-        <div className='flex !w-[45px] !h-[45px] p-5 items-center gap-2 flex-shrink-0 rounded-full border border-gray-300 bg-gray-100'>
+        <div className='flex !w-[45px] !h-[45px] justify-center items-center gap-2 flex-shrink-0 rounded-full border border-gray-300 bg-gray-100'>
           <svg
             width='20'
             height='20'
@@ -401,14 +401,13 @@ export const BodyColor = () => {
           </svg>
         </div>
       </div>
-      <div className='flex justify-between p-6 mt-[20px]'>
+      <div className='flex justify-between p-6'>
         <button
-          className='scale-100  transition active:scale-90 delay-75'
+          className='scale-100 transition active:scale-90 delay-75'
           onClick={() => setCurrentCTA('wheels')}
           title='Previous'
         >
           <svg
-            className='w-4.5 h-4.5 absolute left-3.5 top-3.5 stroke-[1.5] stroke-[#121010]'
             width='25'
             height='15'
             viewBox='0 0 25 15'
@@ -430,7 +429,7 @@ export const BodyColor = () => {
           <button
             onClick={() => setCurrentCTA('handles')}
             title='Next'
-            className='scale-100  transition active:scale-90 delay-75'
+            className='scale-100 transition active:scale-90 delay-75'
           >
             <svg
               width='25'

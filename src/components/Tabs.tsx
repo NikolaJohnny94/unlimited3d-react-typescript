@@ -8,7 +8,8 @@ import {
 import handleAnnotationsOnClick from '../helpers/onPointerClick/subHelpers/handleAnnotationsOnClick/handleAnnotationsOnClick'
 
 export const Tabs = () => {
-  const { setShowCtas, setCurrentCTA } = useColorsContext()
+  const { largeOrGreaterScreen, setShowCtas, setCurrentCTA } =
+    useColorsContext()
   const [activeTab, setActiveTab] = useState('configurator')
 
   const handleLocalStorageAnnotationsModifier = () => {
@@ -41,7 +42,7 @@ export const Tabs = () => {
   return (
     <div
       id='tabs'
-      className='flex justify-center absolute top-[2.5%] left-1/2 transform -translate-x-1/2 -translate-y-[2.5%] w-[90%] xl:w-[604px] lg:w-[400px] md:w-[400px] md:h-[42px] lg:h-[42px] h-16  rounded-lg bg-white/50 backdrop-blur-md flex-shrink-0"
+      className='flex justify-center absolute top-[2.5%] left-1/2 transform -translate-x-1/2 -translate-y-[2.5%] w-[95%] xl:w-[604px] lg:w-[400px] md:w-[400px] md:h-[42px] lg:h-[42px] h-16  rounded-lg bg-white/50 backdrop-blur-md flex-shrink-0"
 '
     >
       <div
@@ -51,7 +52,7 @@ export const Tabs = () => {
         }`}
       >
         <button
-          className='text-[#121010] font-manrope text-[20px] font-normal leading-[0.909]'
+          className='text-[#121010] font-manrope lg:text-[18px] xl:text-[20px] font-normal leading-[0.909]'
           onClick={() => {
             hideAnnotations([
               'Open',
@@ -62,7 +63,9 @@ export const Tabs = () => {
               'Wheel spinner off',
             ]),
               setShowCtas(true),
-              defaultCameraModifier(),
+              defaultCameraModifier(
+                largeOrGreaterScreen ? 'desktop' : 'mobile'
+              ),
               setCurrentCTA(null),
               setActiveTab('configurator')
           }}
@@ -77,11 +80,13 @@ export const Tabs = () => {
         }`}
       >
         <button
-          className='text-[#121010] font-manrope text-[20px] font-normal leading-[0.909]'
+          className='text-[#121010] font-manrope text-[18px] lg:text-[20px] xl:text-[20px] font-normal leading-[0.909]'
           onClick={() => {
             showAnnotations(['Open', 'Extend handle', 'Wheel spinner on']),
               setShowCtas(false),
-              defaultCameraModifier(),
+              defaultCameraModifier(
+                largeOrGreaterScreen ? 'desktop' : 'mobile'
+              ),
               setCurrentCTA(null),
               setActiveTab('animations'),
               activateAnimationModifier()

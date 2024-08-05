@@ -28,7 +28,7 @@ export const Handles = () => {
           Handles Color
         </div>
         <button
-          className='text-black text-base font-normal leading-normal'
+          className='text-black text-base font-normal leading-normal scale-100 transition active:scale-90 delay-75'
           onClick={closeHandlesPanel}
         >
           <svg

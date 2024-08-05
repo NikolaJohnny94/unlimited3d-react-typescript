@@ -22,13 +22,13 @@ export const Wheels = () => {
   }
 
   return (
-    <div className='w-full lg:w-[280px] xl:w-[280px] xl:h-[515px] lg:h-[515px] md:h-[515px] h-[230px] bg-white absolute bottom-0 xl:top-[8%] xl:right-[3.5%] lg:top-[8%] lg:right-[2.5%] flex-shrink-0 rounded-md'>
+    <div className='w-full lg:w-[280px] xl:w-[280px] xl:h-[515px] lg:h-[515px] md:h-[515px] h-[300px] bg-white absolute bottom-0 xl:top-[8%] xl:right-[3.5%] lg:top-[8%] lg:right-[2.5%] flex-shrink-0 rounded-md'>
       <div className='flex justify-between mt-[32px] mb-[24px] px-6'>
         <div className='color-picker-heading text-black text-base font-normal leading-normal'>
           Wheels Color
         </div>
         <button
-          className='text-black text-base font-normal leading-normal'
+          className='text-black text-base font-normal leading-normal scale-100 transition active:scale-90 delay-75'
           onClick={closeWheelsPanel}
         >
           <svg
@@ -363,7 +363,7 @@ export const Wheels = () => {
         </button>
       </div>
       <Carousel setColor={setColor} color={color} cta='wheels' />
-      <div className='flex justify-between px-6 py-4'>
+      <div className='flex justify-between p-6 mt-[30px] lg:mt-[150px] xl:mt-[150px]'>
         <button
           className='scale-100  transition active:scale-90 delay-75'
           onClick={() => setCurrentCTA('corners')}

@@ -28,7 +28,7 @@ export const Corners = () => {
           Corners Color
         </div>
         <button
-          className='text-black text-base font-normal leading-normal'
+          className='text-black text-base font-normal leading-normal scale-100 transition active:scale-90 delay-75'
           onClick={closeCornersPanel}
         >
           <svg
@@ -299,7 +299,7 @@ export const Corners = () => {
 
       {/* Mobile carousel */}
       <Carousel setColor={setColor} color={color} cta='corners' />
-      <div className='flex justify-between p-6 mt-[30px]'>
+      <div className='flex justify-between p-6 mt-[30px] lg:mt-[150px] xl:mt-[150px]'>
         <button
           className='scale-100  transition active:scale-90 delay-75'
           onClick={() => setCurrentCTA('handles')}
