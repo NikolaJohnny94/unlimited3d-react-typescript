@@ -18,9 +18,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
       return (
         <div className='visible lg:hidden xl:hidden px-6'>
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
-            <SwiperSlide>
+            <SwiperSlide className='flex justify-center items-center'>
               <button
-                className='flex justify-center items-center'
                 onClick={() => {
                   dispatch({
                     type: 'BODY_COLOR/ALUMINIUM',
@@ -33,8 +32,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 }}
               >
                 <svg
-                  width='48'
-                  height='48'
+                  width='56'
+                  height='56'
                   viewBox='0 0 48 48'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -86,9 +85,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 </svg>
               </button>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='flex justify-center items-center'>
               <button
-                className='flex justify-center items-center'
                 onClick={() => {
                   dispatch({
                     type: 'BODY_COLOR/BLACK',
@@ -101,8 +99,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 }}
               >
                 <svg
-                  width='48'
-                  height='48'
+                  width='56'
+                  height='56'
                   viewBox='0 0 48 48'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -174,8 +172,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 }}
               >
                 <svg
-                  width='48'
-                  height='48'
+                  width='56'
+                  height='56'
                   viewBox='0 0 48 48'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -229,8 +227,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 }}
               >
                 <svg
-                  width='48'
-                  height='48'
+                  width='56'
+                  height='56'
                   viewBox='0 0 48 48'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -285,8 +283,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 }}
               >
                 <svg
-                  width='48'
-                  height='48'
+                  width='56'
+                  height='56'
                   viewBox='0 0 48 48'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -340,8 +338,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 }}
               >
                 <svg
-                  width='48'
-                  height='48'
+                  width='56'
+                  height='56'
                   viewBox='0 0 48 48'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -382,9 +380,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
       return (
         <div className='visible lg:hidden xl:hidden px-6'>
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
-            <SwiperSlide>
+            <SwiperSlide className='flex justify-center items-center'>
               <button
-                className='flex justify-center items-center'
                 onClick={() => {
                   dispatch({
                     type: 'CORNERS_COLOR/BLACK',
@@ -540,9 +537,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 </svg>
               </button>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='flex justify-center items-center'>
               <button
-                className='flex justify-center items-center'
                 onClick={() => {
                   dispatch({
                     type: 'CORNERS_COLOR/ALUMINIUM',
@@ -654,10 +650,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
       return (
         <div className='visible lg:hidden xl:hidden px-6'>
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
-            <SwiperSlide>
-              {' '}
+            <SwiperSlide className='flex justify-center items-center'>
               <button
-                className='flex justify-center items-center'
                 onClick={() => {
                   dispatch({
                     type: 'HANDLES_COLOR/BLACK',
@@ -825,9 +819,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 </svg>
               </button>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='flex justify-center items-center'>
               <button
-                className='flex justify-center items-center'
                 onClick={() => {
                   dispatch({
                     type: 'HANDLES_COLOR/ALUMINIUM',
@@ -951,9 +944,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
       return (
         <div className='visible lg:hidden xl:hidden px-6'>
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
-            <SwiperSlide>
+            <SwiperSlide className='flex justify-center items-center'>
               <button
-                className='flex justify-center items-center'
                 onClick={() => {
                   dispatch({
                     type: 'WHEELS_COLOR/BLACK',
@@ -1142,9 +1134,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                 </svg>
               </button>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='flex justify-center items-center'>
               <button
-                className='flex justify-center items-center'
                 onClick={() => {
                   dispatch({
                     type: 'WHEELS_COLOR/ALUMINIUM',

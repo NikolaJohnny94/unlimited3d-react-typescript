@@ -1,5 +1,16 @@
-# React + TypeScript + Vite
+# 🤖 3D Model Configurator created with Unlimited3D <img src="https://yt3.googleusercontent.com/c3CU7GaslnZK4gss4sgcwJdWzinb9GOuPSJu_ze4FYKJKyEenQJ2mLyBn2CkQc36yIfebjtFvQ=s160-c-k-c0x00ffffff-no-rj" width="28"/>, React <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/react_original_logo_icon_146374.png" width="28"/>, TypeScript <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_plain_logo_icon_146316.png" width="28"/>, Tailwind <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/tailwindcss_logo_icon_167923.png" width="28px"/> and Vite <img src="https://vitejs.dev/logo.svg" width="28"/>
 
+## 🛰️ [Live Demo](https://unlimited3d-react-typescript.netlify.app/)
+
+## 💻 Stack:
+
+<img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/react_original_logo_icon_146374.png" width="20"/> [React.js](https://reactjs.org/)<br>
+<img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_plain_logo_icon_146316.png" width="20"/> [TypeScript](https://www.typescriptlang.org/)<br/>
+<img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/tailwindcss_logo_icon_167923.png" width="22px"/> [Tailwindcss](https://tailwindcss.com/)<br>
+<img src="https://vitejs.dev/logo.svg" width="20"/> [Vite](https://vitejs.dev/)<br>
+<img src="https://yt3.googleusercontent.com/c3CU7GaslnZK4gss4sgcwJdWzinb9GOuPSJu_ze4FYKJKyEenQJ2mLyBn2CkQc36yIfebjtFvQ=s160-c-k-c0x00ffffff-no-rj" width="20px"/> [Unlimited3D](https://unlimited3d.com/)<br>
+
+<hr/>
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

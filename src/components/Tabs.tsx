@@ -69,6 +69,7 @@ export const Tabs = () => {
               setCurrentCTA(null),
               setActiveTab('configurator')
           }}
+          title='Configurator'
         >
           CONFIGURATOR
         </button>
@@ -91,6 +92,7 @@ export const Tabs = () => {
               setActiveTab('animations'),
               activateAnimationModifier()
           }}
+          title='Animations'
         >
           ANIMATIONS
         </button>
