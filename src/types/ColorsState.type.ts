@@ -1,11 +1,13 @@
+import { Colors } from '@/enums/Colors.enum'
+
 export type ColorsState = {
   initialComponent: null | string
-  colorSelected: string
+  colorSelected: Colors
   lastTriggeredBy: string[]
   colors: {
-    body: string
-    corners: string
-    handles: string
-    wheels: string
+    body: Colors
+    corners: Colors
+    handles: Colors
+    wheels: Colors
   }
 }

@@ -9,13 +9,13 @@ export const options = {
   onPointerClick,
 }
 
-type colors = {
+type ColorKeys = {
   [key: string]: {
     [key: string]: string
   }
 }
 
-export const colors: colors = {
+export const colors: ColorKeys = {
   body: {
     blue: '01 CHROME SATIN ROYAL BLUE',
     green: '02 CHROME SATIN OLIVE GREEN',
@@ -33,6 +33,7 @@ export const colors: colors = {
     aluminium: 'Chrome ALUMINIUM',
   },
 }
+
 export const parts = {
   body: ['Body_metal_base', 'Body_metal_cover'],
   handles: ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],

@@ -4,91 +4,27 @@ import {
   setLastTriggeredBy,
   setInitialComponent,
   setColorSelected,
+  resetColors,
 } from './helpers'
+import { Colors } from '@/enums/Colors.enum'
 
-// const resetColor = (
-//   colorSelected: string,
-//   cta: string,
-//   initialComponent: string | null
-// ) => {
-//   let newObj: any = {}
-//   if (initialComponent) {
-//     const ctas = [
-//       'BODY_COLOR',
-//       'WHEELS_COLOR',
-//       'CORNERS_COLOR',
-//       'HANDLES_COLOR',
-//     ]
-//     const otherCtas: string[] = ctas.filter(
-//       (cta: string) => cta !== initialComponent
-//     )
-//     console.log(otherCtas)
-//     const returnOtherCtas = () => {
-//       otherCtas.forEach((cta: string) => ({
-//         [`${cta.split('_')[0].toLowerCase()}`]: 'ALUMINIUM',
-//       }))
-//     }
+// type Actions = {
+//   type: string
 
-//     otherCtas.forEach((cta: string) => ({
-//       [`${cta.split('_')[0].toLowerCase()}`]: 'ALUMINIUM',
-//     }))
-//     newObj = {}
-//     newObj = {
-//       [initialComponent.split('_')[0].toLowerCase()]: colorSelected,
-//       returnOtherCtas()
-//     }
+//   payload?: {
+//     bodyColorsParts: string[]
+//     bodyColor: string
+//     cornersColorsParts: string[]
+//     cornersColor: string
+//     handlesColorsParts: string[]
+//     handlesColor: string
+//     wheelsColorsParts: string[]
+//     wheelsColor: string
 //   }
-//   return newObj
 // }
-
-const resetColor = (initialComponent: string | null, colorSelected: string) => {
-  switch (initialComponent) {
-    case 'BODY_COLOR':
-      return {
-        body: colorSelected,
-        handles: 'ALUMINIUM',
-        corners: 'ALUMINIUM',
-        wheels: 'ALUMINIUM',
-      }
-    case 'CORNERS_COLOR':
-      return {
-        body: 'ALUMINIUM',
-        handles: 'ALUMINIUM',
-        corners: colorSelected,
-        wheels: 'ALUMINIUM',
-      }
-    case 'HANDLES_COLOR':
-      return {
-        body: 'ALUMINIUM',
-        handles: 'ALUMINIUM',
-        corners: colorSelected,
-        wheels: 'ALUMINIUM',
-      }
-    case 'WHEELS_COLOR':
-      return {
-        body: 'ALUMINIUM',
-        handles: 'ALUMINIUM',
-        corners: 'ALUMINIUM',
-        wheels: colorSelected,
-      }
-    default: {
-      return {
-        body: 'ALUMINIUM',
-        handles: 'ALUMINIUM',
-        corners: 'ALUMINIUM',
-        wheels: 'ALUMINIUM',
-      }
-    }
-  }
-}
 
 export const colorsReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case 'RESET_COLORS':
-      return {
-        ...state,
-        colors: resetColor(state.initialComponent, state.colorSelected),
-      }
     case 'BODY_COLOR/ALUMINIUM':
       changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
@@ -105,7 +41,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          body: 'ALUMINIUM',
+          body: Colors.ALUMINIUM,
         },
       }
     case 'BODY_COLOR/BLACK':
@@ -124,7 +60,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          body: 'BLACK',
+          body: Colors.BLACK,
         },
       }
     case 'BODY_COLOR/RED':
@@ -143,7 +79,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          body: 'RED',
+          body: Colors.RED,
         },
       }
 
@@ -163,7 +99,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          body: 'BLUE',
+          body: Colors.BLUE,
         },
       }
     case 'BODY_COLOR/GREEN':
@@ -182,7 +118,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          body: 'GREEN',
+          body: Colors.GREEN,
         },
       }
 
@@ -202,7 +138,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          body: 'ORANGE',
+          body: Colors.ORANGE,
         },
       }
 
@@ -226,7 +162,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          corners: 'ALUMINIUM',
+          corners: Colors.ALUMINIUM,
         },
       }
     case 'CORNERS_COLOR/BLACK':
@@ -248,7 +184,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          corners: 'BLACK',
+          corners: Colors.BLACK,
         },
       }
     case 'CORNERS_COLOR/RED':
@@ -270,7 +206,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          corners: 'RED',
+          corners: Colors.RED,
         },
       }
 
@@ -293,7 +229,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          corners: 'BLUE',
+          corners: Colors.BLUE,
         },
       }
     case 'CORNERS_COLOR/GREEN':
@@ -315,7 +251,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          corners: 'GREEN',
+          corners: Colors.GREEN,
         },
       }
 
@@ -338,7 +274,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          corners: 'ORANGE',
+          corners: Colors.ORANGE,
         },
       }
     //wheels
@@ -358,7 +294,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          wheels: 'ALUMINIUM',
+          wheels: Colors.ALUMINIUM,
         },
       }
     case 'WHEELS_COLOR/BLACK':
@@ -377,7 +313,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          wheels: 'BLACK',
+          wheels: Colors.BLACK,
         },
       }
     case 'WHEELS_COLOR/RED':
@@ -396,7 +332,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          wheels: 'RED',
+          wheels: Colors.RED,
         },
       }
 
@@ -416,7 +352,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          wheels: 'BLUE',
+          wheels: Colors.BLUE,
         },
       }
     case 'WHEELS_COLOR/GREEN':
@@ -435,7 +371,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          wheels: 'GREEN',
+          wheels: Colors.GREEN,
         },
       }
 
@@ -455,7 +391,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          wheels: 'ORANGE',
+          wheels: Colors.ORANGE,
         },
       }
 
@@ -479,7 +415,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          handles: 'ALUMINIUM',
+          handles: Colors.ALUMINIUM,
         },
       }
     case 'HANDLES_COLOR/BLACK':
@@ -501,7 +437,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          handles: 'BLACK',
+          handles: Colors.BLACK,
         },
       }
     case 'HANDLES_COLOR/RED':
@@ -523,7 +459,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          handles: 'RED',
+          handles: Colors.RED,
         },
       }
 
@@ -546,7 +482,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          handles: 'BLUE',
+          handles: Colors.BLUE,
         },
       }
     case 'HANDLES_COLOR/GREEN':
@@ -568,7 +504,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          handles: 'GREEN',
+          handles: Colors.GREEN,
         },
       }
 
@@ -591,10 +527,14 @@ export const colorsReducer = (state = initialState, action: any) => {
         lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
         colors: {
           ...state.colors,
-          handles: 'ORANGE',
+          handles: Colors.ORANGE,
         },
       }
-
+    case 'RESET_COLORS':
+      return {
+        ...state,
+        colors: resetColors(state.initialComponent, state.colorSelected),
+      }
     default:
       return state
   }

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import SVG from '../SVG'
+import { SVG } from '@components/common'
 
 type Props = {
   cta: string

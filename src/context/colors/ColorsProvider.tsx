@@ -1,9 +1,13 @@
 import { useEffect, useReducer, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { ColorsContext } from './ColorsContext'
 import { colorsReducer } from './colorsReducer'
 import { initialState } from './initialState'
-import { changeColor } from '../../utils'
-import { useMediaQuery } from 'react-responsive'
+import { changeColor } from '@/utils'
+import { parts, colors } from '@/consts'
+import { CTA } from '@/enums'
+import { RESET_COLORS } from './types'
+import type { ColorVariants } from '@/types'
 
 type Props = {
   children: React.ReactElement
@@ -11,7 +15,7 @@ type Props = {
 
 export const ColorsProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(colorsReducer, initialState)
-  const [currentCTA, setCurrentCTA] = useState<string | null>(null)
+  const [currentCTA, setCurrentCTA] = useState<CTA | null>(null)
   const [showCTAS, setShowCtas] = useState(true)
   const largeOrGreaterScreen = useMediaQuery({
     query: '(min-width: 1024px)',
@@ -23,52 +27,32 @@ export const ColorsProvider = ({ children }: Props) => {
         state.initialComponent !== 'BODY_COLOR' &&
         state.lastTriggeredBy.includes('BODY_COLOR')
       ) {
-        changeColor(
-          ['Body_metal_base', 'Body_metal_cover'],
-          '06 CHROME SATIN ALUMINUM'
-        )
-        dispatch({ type: 'RESET_COLORS' })
+        changeColor(parts.body, (colors as ColorVariants).body.aluminium)
+        dispatch({ type: RESET_COLORS })
       }
 
       if (
         state.initialComponent !== 'CORNERS_COLOR' &&
         state.lastTriggeredBy.includes('CORNERS_COLOR')
       ) {
-        changeColor(['Corners_base', 'Corners_cover'], 'Chrome ALUMINIUM')
-        dispatch({ type: 'RESET_COLORS' })
+        changeColor(parts.corners, (colors as ColorVariants).other.aluminium)
+        dispatch({ type: RESET_COLORS })
       }
 
       if (
         state.initialComponent !== 'HANDLES_COLOR' &&
         state.lastTriggeredBy.includes('HANDLES_COLOR')
       ) {
-        changeColor(
-          ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
-          'Chrome ALUMINIUM'
-        )
-        dispatch({ type: 'RESET_COLORS' })
+        changeColor(parts.handles, (colors as ColorVariants).other.aluminium)
+        dispatch({ type: RESET_COLORS })
       }
 
       if (
         state.initialComponent !== 'WHEELS_COLOR' &&
         state.lastTriggeredBy.includes('WHEELS_COLOR')
       ) {
-        changeColor(
-          [
-            'wheels_base',
-            'Wheels_base_cover',
-            'Wheels_front_right_base',
-            'Wheels_front_left_base',
-            'Wheels_back_right_base',
-            'Wheels_back_left_base',
-            'Wheels_front_right_center',
-            'Wheels_front_left_center',
-            'Wheels_back_right_center',
-            'Wheels_back_left_centar',
-          ],
-          'Chrome ALUMINIUM'
-        )
-        dispatch({ type: 'RESET_COLORS' })
+        changeColor(parts.wheels, (colors as ColorVariants).other.aluminium)
+        dispatch({ type: RESET_COLORS })
       }
     }
   }, [state.colorSelected])

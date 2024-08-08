@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { useColorsContext } from '../context/colors/ColorsContext'
+import { useColorsContext } from '../../context/colors/ColorsContext'
 import {
   defaultCameraModifier,
   hideAnnotations,
   showAnnotations,
-} from '../utils'
-import handleAnnotationsOnClick from '../helpers/onPointerClick/subHelpers/handleAnnotationsOnClick/handleAnnotationsOnClick'
+} from '../../utils'
+import handleAnnotationsOnClick from '../../helpers/onPointerClick/subHelpers/handleAnnotationsOnClick/handleAnnotationsOnClick'
 
 export const Tabs = () => {
   const { largeOrGreaterScreen, setShowCtas, setCurrentCTA } =

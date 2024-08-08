@@ -1,2 +1,6 @@
 export * from './ImageNoImageComponent'
 export * from './NextAndPreviousButtons'
+export * from './CardHeading'
+export * from './ColorButtons'
+export * from './Carousel'
+export * from './Card'

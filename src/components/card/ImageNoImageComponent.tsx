@@ -1,4 +1,4 @@
-import SVG from '../SVG'
+import { SVG } from '@components/common'
 
 export const ImageNoImageComponent = () => {
   return (

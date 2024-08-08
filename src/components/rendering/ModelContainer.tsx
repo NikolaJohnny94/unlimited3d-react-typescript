@@ -1,4 +1,4 @@
-import { LoadingSpinner } from '.'
+import { LoadingSpinner } from '@components/index'
 
 export const ModelContainer = () => {
   return (

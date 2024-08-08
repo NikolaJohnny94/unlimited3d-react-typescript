@@ -1,11 +1,9 @@
-import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useColorsContext } from '../context/colors/ColorsContext'
-import { showSpecificColors } from '../utils'
+import { useColorsContext } from '@/context/colors/ColorsContext'
+import { showSpecificColors } from '@/utils'
 import 'swiper/css'
 
 type Props = {
-  // setColor: React.Dispatch<React.SetStateAction<string>>
   color: string
   cta: string
 }
@@ -1153,13 +1151,14 @@ export const Carousel = ({ color, cta }: Props) => {
                 </svg>
               </button>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide
+              className={`${showSpecificColors(
+                'WHEELS_COLOR',
+                state,
+                'GREEN'
+              )} flex justify-center items-center`}
+            >
               <button
-                className={`${showSpecificColors(
-                  'WHEELS_COLOR',
-                  state,
-                  'GREEN'
-                )} flex justify-center items-center`}
                 onClick={() =>
                   dispatch({
                     type: 'WHEELS_COLOR/GREEN',
@@ -1200,13 +1199,14 @@ export const Carousel = ({ color, cta }: Props) => {
                 </svg>
               </button>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide
+              className={`${showSpecificColors(
+                'WHEELS_COLOR',
+                state,
+                'ORANGE'
+              )} flex justify-center items-center`}
+            >
               <button
-                className={`${showSpecificColors(
-                  'WHEELS_COLOR',
-                  state,
-                  'ORANGE'
-                )} flex justify-center items-center`}
                 onClick={() =>
                   dispatch({
                     type: 'WHEELS_COLOR/ORANGE',

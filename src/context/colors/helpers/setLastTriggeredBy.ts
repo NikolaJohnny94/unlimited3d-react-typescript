@@ -1,15 +1,11 @@
-import { extractCtaAndColorFromActionType } from './subHelpers/extractCtaAndColorFromActionType'
+import { extractCta } from './subHelpers/extractingValuesFromActionType'
 
 export const setLastTriggeredBy = (
   lastTriggeredBy: string[],
   actionType: string
 ): string[] => {
-  if (
-    !lastTriggeredBy.includes(
-      extractCtaAndColorFromActionType('cta', actionType)
-    )
-  ) {
-    lastTriggeredBy.push(extractCtaAndColorFromActionType('cta', actionType))
+  if (!lastTriggeredBy.includes(extractCta(actionType))) {
+    lastTriggeredBy.push(extractCta(actionType))
     return lastTriggeredBy
   } else {
     return lastTriggeredBy

@@ -5,7 +5,11 @@
 3D Model configurator of a suitcase. There are 2 tabs: Configurator and Animations. On the Configurator tab, user have 4 **CTA** _(Cooperative Thread Array)_ buttons **Body**, **Handles**, **Corners**, **Wheels**. <br>
 When user clicks any **CTA** button the color pallete modal opens with 6 colors to pick: **aluminium**, **black**, **red**, **blue**, **green** and **orange**. When user picks one color on the initial **CTA**, the color combination on other 3 **CTAs** are **aluminium**, **black** and the color of the initial **CTA**. For example: If user check **Body** **CTA** and picks **blue** color, on the other 3 **CTA**s the color combinations are **aluminium**, **black** and the color of the initial **CTA**, in this case **blue**. In this way user cannot combine colors like for example **blue** and **orange**, or **blue** and **green**, but can combine with **aluminium**, **black** and **blue**.
 When the user picks another color on the initial **CTA**, but also colors on the other **CTA**s are applied, for example: **corners** have **blue** color, **handles** have **blue** color and **wheels** have **black** color, all this colors are reverted to default **aluminium** color, except for the initial **CTA**.<br>
-When user clicks on the **Animations** tab, the **CTA** buttons are hidden and
+When user clicks on the **Animations** tab, the **CTA** buttons are hidden and the **Open**, **Extend Handle**, **Wheel Spinner** annotations are shown.
+When user click on **Open** annotaion, the suitcase opens and the annotation is changed to **Close** with radio button checked.<br>
+When user click on **Extend Handle** annotaion, the suitcase opens and the annotation is changed to **Rectract Handle** with radio button checked.<br>
+When user click on **Wheel Spinner** annotaion, the suitcase opens and the is not changed and it stays the same but radio button is checked. The state of annotations and modifiers triggered are preserved even after user click to **Configurator** and comes back again. The camera will zoom in based on the annotation clicked and show respective label and radio button checked indicator that the annotation is clicked. <br>
+When user is on the tablet and smartphone the color pallete modal is shown on the bottom with the colors carousel.<br>
 
 ## 🛰️ [Live Demo](https://unlimited3d-react-typescript.netlify.app/)
 

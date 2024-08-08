@@ -1,37 +1,37 @@
-import { useColorsContext } from '../context/colors/ColorsContext'
-import SVG from './SVG'
-import { showSpecificColors } from '../utils'
-import { colors, parts } from '../consts'
-import type { Dispatch, FC } from 'react'
+import { useColorsContext } from '@/context/colors/ColorsContext'
+import { SVG } from './SVG'
+import { showSpecificColors } from '@/utils'
+import { colors, parts } from '@/consts'
+import { Colors, CTA } from '@/enums'
+import type { FC } from 'react'
 
 type Props = {
-  CTA: string
-  color: string
+  cta: CTA
+  color: Colors
   currentColor: string
-  // setColor: Dispatch<React.SetStateAction<string>>
 }
 
-export const Button: FC<Props> = ({ CTA, color, currentColor }) => {
+export const Button: FC<Props> = ({ cta, color, currentColor }) => {
   const { state, dispatch } = useColorsContext()
 
-  const setCtaPayload = (cta: string) => {
+  const setCtaPayload = (cta: CTA) => {
     switch (cta) {
-      case 'BODY':
+      case CTA.BODY:
         return {
           bodyColorsParts: parts.body,
           bodyColor: colors.body[color.toLowerCase()],
         }
-      case 'HANDLES':
+      case CTA.HANDLES:
         return {
           handlesColorsParts: parts.handles,
           handlesColor: colors.other[color.toLowerCase()],
         }
-      case 'CORNERS':
+      case CTA.CORNERS:
         return {
           cornersColorsParts: parts.corners,
           cornersColor: colors.other[color.toLowerCase()],
         }
-      case 'WHEELS':
+      case CTA.WHEELS:
         return {
           wheelsColorsParts: parts.wheels,
           wheelsColor: colors.other[color.toLowerCase()],
@@ -43,18 +43,18 @@ export const Button: FC<Props> = ({ CTA, color, currentColor }) => {
     <button
       className={`${
         color !== 'ALUMINIUM' && color !== 'BLACK'
-          ? `${showSpecificColors(`${CTA}_COLOR`, state, color)}`
+          ? `${showSpecificColors(`${cta}_COLOR`, state, color)}`
           : ''
       } my-[16px] flex justify-center items-center`}
       onClick={() =>
         dispatch({
-          type: `${CTA}_COLOR/${color}`,
-          payload: setCtaPayload(CTA),
+          type: `${cta}_COLOR/${color}`,
+          payload: setCtaPayload(cta),
         })
       }
     >
       <SVG
-        CTA={{ isBody: CTA === 'BODY' ? true : false, color, currentColor }}
+        cta={{ isBody: cta === CTA.BODY ? true : false, color, currentColor }}
       />
     </button>
   )

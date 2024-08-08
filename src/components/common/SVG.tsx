@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
 type Props = {
-  CTA?: {
+  cta?: {
     isBody: boolean
     color: string
     currentColor: string
@@ -9,10 +9,10 @@ type Props = {
   name?: string
 }
 
-const SVG: FC<Props> = ({ CTA, name }) => {
-  if (CTA) {
-    if (CTA?.isBody) {
-      switch (CTA?.color) {
+export const SVG: FC<Props> = ({ cta, name }) => {
+  if (cta) {
+    if (cta?.isBody) {
+      switch (cta?.color) {
         case 'ALUMINIUM':
           return (
             <svg
@@ -29,7 +29,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cy='28'
                 r='27.5'
                 stroke={
-                  CTA?.currentColor === 'ALUMINIUM' ? '#121010' : '#E5E5E5'
+                  cta?.currentColor === 'ALUMINIUM' ? '#121010' : '#E5E5E5'
                 }
               />
               <defs>
@@ -75,7 +75,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cx='28'
                 cy='28'
                 r='27.5'
-                stroke={CTA?.currentColor === 'BLACK' ? '#121010' : '#E5E5E5'}
+                stroke={cta?.currentColor === 'BLACK' ? '#121010' : '#E5E5E5'}
               />
               <defs>
                 <linearGradient
@@ -118,7 +118,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cx='28'
                 cy='28'
                 r='27.5'
-                stroke={CTA?.currentColor === 'RED' ? '#121010' : '#E5E5E5'}
+                stroke={cta?.currentColor === 'RED' ? '#121010' : '#E5E5E5'}
               />
               <circle cx='28' cy='28' r='24' fill='url(#paint0_linear_0_112)' />
               <defs>
@@ -151,7 +151,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cx='28'
                 cy='28'
                 r='27.5'
-                stroke={CTA?.currentColor === 'BLUE' ? '#121010' : '#E5E5E5'}
+                stroke={cta?.currentColor === 'BLUE' ? '#121010' : '#E5E5E5'}
               />
               <defs>
                 <linearGradient
@@ -184,7 +184,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cx='28'
                 cy='28'
                 r='27.5'
-                stroke={CTA?.currentColor === 'GREEN' ? '#121010' : '#E5E5E5'}
+                stroke={cta?.currentColor === 'GREEN' ? '#121010' : '#E5E5E5'}
               />
               <defs>
                 <linearGradient
@@ -216,7 +216,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cx='28'
                 cy='28'
                 r='27.5'
-                stroke={CTA?.currentColor === 'ORANGE' ? '#121010' : '#E5E5E5'}
+                stroke={cta?.currentColor === 'ORANGE' ? '#121010' : '#E5E5E5'}
               />
               <defs>
                 <linearGradient
@@ -236,7 +236,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
           )
       }
     } else {
-      switch (CTA?.color) {
+      switch (cta?.color) {
         case 'ALUMINIUM':
           return (
             <svg
@@ -252,7 +252,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cy='28'
                 r='27.5'
                 stroke={
-                  CTA?.currentColor === 'ALUMINIUM' ? '#121010' : '#E5E5E5'
+                  cta?.currentColor === 'ALUMINIUM' ? '#121010' : '#E5E5E5'
                 }
               />
             </svg>
@@ -284,7 +284,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cx='28'
                 cy='28'
                 r='27.5'
-                stroke={CTA?.currentColor === 'BLACK' ? '#121010' : '#E5E5E5'}
+                stroke={cta?.currentColor === 'BLACK' ? '#121010' : '#E5E5E5'}
               />
               <defs>
                 <linearGradient
@@ -317,7 +317,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                 cx='28'
                 cy='28'
                 r='27.5'
-                stroke={CTA?.currentColor === 'RED' ? '#121010' : '#E5E5E5'}
+                stroke={cta?.currentColor === 'RED' ? '#121010' : '#E5E5E5'}
               />
               <defs>
                 <linearGradient
@@ -349,7 +349,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                   cx='28'
                   cy='28'
                   r='27.5'
-                  stroke={CTA?.currentColor === 'BLUE' ? '#121010' : '#E5E5E5'}
+                  stroke={cta?.currentColor === 'BLUE' ? '#121010' : '#E5E5E5'}
                 />
                 <circle
                   cx='28'
@@ -376,7 +376,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                   cx='28'
                   cy='28'
                   r='27.5'
-                  stroke={CTA?.currentColor === 'GREEN' ? '#121010' : '#E5E5E5'}
+                  stroke={cta?.currentColor === 'GREEN' ? '#121010' : '#E5E5E5'}
                 />
               </g>
             </svg>
@@ -397,7 +397,7 @@ const SVG: FC<Props> = ({ CTA, name }) => {
                   cy='28'
                   r='27.5'
                   stroke={
-                    CTA?.currentColor === 'ORANGE' ? '#121010' : '#E5E5E5'
+                    cta?.currentColor === 'ORANGE' ? '#121010' : '#E5E5E5'
                   }
                 />
               </g>
@@ -493,5 +493,3 @@ const SVG: FC<Props> = ({ CTA, name }) => {
     }
   }
 }
-
-export default SVG

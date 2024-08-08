@@ -1,31 +1,19 @@
+import { SVG } from '@components/common'
+import { setNextAndPreviousButtons } from '@/helpers'
+import { CTA } from '@/enums/CTA.enum'
 import type { Dispatch, FC } from 'react'
-import SVG from '../SVG'
 
 type Props = {
-  cta: string
-  setCurrentCTA: Dispatch<React.SetStateAction<string | null>>
+  cta: CTA
+  setCurrentCTA: Dispatch<React.SetStateAction<CTA | null>>
 }
 
 export const NextAndPreviousButtons: FC<Props> = ({ cta, setCurrentCTA }) => {
-  const setNextAndPreviousButtons = (cta: string) => {
-    switch (cta) {
-      case 'BODY':
-        return ['wheels', 'handles']
-      case 'HANDLES':
-        return ['body', 'corners']
-      case 'CORNERS':
-        return ['handles', 'wheels']
-      case 'WHEELS':
-        return ['corners', 'body']
-      default:
-        return ['wheels', 'handles']
-    }
-  }
   return (
     <>
       <div
-        className={`flex justify-between p-6 ${
-          cta === 'BODY' ? '' : 'mt-[30px] lg:mt-[150px] xl:mt-[150px]'
+        className={`flex justify-between p-6 lg:px-6 lg:py-10  xl:px-6 xl:py-10 ${
+          cta === CTA.BODY ? '' : 'mt-[120px] lg:mt-[208px] xl:mt-[208px]'
         }`}
       >
         <button
