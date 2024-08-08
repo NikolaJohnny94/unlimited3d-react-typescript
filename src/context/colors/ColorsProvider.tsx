@@ -27,6 +27,7 @@ export const ColorsProvider = ({ children }: Props) => {
           ['Body_metal_base', 'Body_metal_cover'],
           '06 CHROME SATIN ALUMINUM'
         )
+        dispatch({ type: 'RESET_COLORS' })
       }
 
       if (
@@ -34,6 +35,7 @@ export const ColorsProvider = ({ children }: Props) => {
         state.lastTriggeredBy.includes('CORNERS_COLOR')
       ) {
         changeColor(['Corners_base', 'Corners_cover'], 'Chrome ALUMINIUM')
+        dispatch({ type: 'RESET_COLORS' })
       }
 
       if (
@@ -44,6 +46,7 @@ export const ColorsProvider = ({ children }: Props) => {
           ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
           'Chrome ALUMINIUM'
         )
+        dispatch({ type: 'RESET_COLORS' })
       }
 
       if (
@@ -65,6 +68,7 @@ export const ColorsProvider = ({ children }: Props) => {
           ],
           'Chrome ALUMINIUM'
         )
+        dispatch({ type: 'RESET_COLORS' })
       }
     }
   }, [state.colorSelected])

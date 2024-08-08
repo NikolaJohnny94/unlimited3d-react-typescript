@@ -5,12 +5,12 @@ import { showSpecificColors } from '../utils'
 import 'swiper/css'
 
 type Props = {
-  setColor: React.Dispatch<React.SetStateAction<string>>
+  // setColor: React.Dispatch<React.SetStateAction<string>>
   color: string
   cta: string
 }
 
-export const Carousel = ({ setColor, color, cta }: Props) => {
+export const Carousel = ({ color, cta }: Props) => {
   const { state, dispatch } = useColorsContext()
 
   switch (cta) {
@@ -20,16 +20,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
             <SwiperSlide className='flex justify-center items-center'>
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'BODY_COLOR/ALUMINIUM',
                     payload: {
                       bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                       bodyColor: '06 CHROME SATIN ALUMINUM',
                     },
-                  }),
-                    setColor('ALUMINIUM')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -87,16 +86,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
             </SwiperSlide>
             <SwiperSlide className='flex justify-center items-center'>
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'BODY_COLOR/BLACK',
                     payload: {
                       bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                       bodyColor: '05 CHROME SATIN MIDNIGHT BLACK',
                     },
-                  }),
-                    setColor('BLACK')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -160,16 +158,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'BODY_COLOR/RED',
                     payload: {
                       bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                       bodyColor: '04 CHROME SATIN CHERRY RED',
                     },
-                  }),
-                    setColor('RED')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -215,16 +212,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'BODY_COLOR/BLUE',
                     payload: {
                       bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                       bodyColor: '01 CHROME SATIN ROYAL BLUE',
                     },
-                  }),
-                    setColor('BLUE')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -271,16 +267,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'BODY_COLOR/GREEN',
                     payload: {
                       bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                       bodyColor: '02 CHROME SATIN OLIVE GREEN',
                     },
-                  }),
-                    setColor('GREEN')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -326,16 +321,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'BODY_COLOR/ORANGE',
                     payload: {
                       bodyColorsParts: ['Body_metal_base', 'Body_metal_cover'],
                       bodyColor: '03 CHROME SATIN BURNT ORANGE',
                     },
-                  }),
-                    setColor('ORANGE')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -382,16 +376,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
             <SwiperSlide className='flex justify-center items-center'>
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'CORNERS_COLOR/BLACK',
                     payload: {
                       cornersColorsParts: ['Corners_base', 'Corners_cover'],
                       cornersColor: 'Chrome MIDNIGHT BLACK',
                     },
-                  }),
-                    setColor('BLACK')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -445,16 +438,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'CORNERS_COLOR/RED',
                     payload: {
                       cornersColorsParts: ['Corners_base', 'Corners_cover'],
                       cornersColor: 'Chrome CHERRY RED',
                     },
-                  }),
-                    setColor('RED')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -501,16 +493,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'CORNERS_COLOR/BLUE',
                     payload: {
                       cornersColorsParts: ['Corners_base', 'Corners_cover'],
                       cornersColor: 'Chrome ROYAL BLUE',
                     },
-                  }),
-                    setColor('BLUE')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -539,16 +530,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
             </SwiperSlide>
             <SwiperSlide className='flex justify-center items-center'>
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'CORNERS_COLOR/ALUMINIUM',
                     payload: {
                       cornersColorsParts: ['Corners_base', 'Corners_cover'],
                       cornersColor: 'Chrome ALUMINIUM',
                     },
-                  }),
-                    setColor('ALUMINIUM')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -575,16 +565,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'CORNERS_COLOR/GREEN',
                     payload: {
                       cornersColorsParts: ['Corners_base', 'Corners_cover'],
                       cornersColor: 'Chrome SATIN OLIVE GREEN',
                     },
-                  }),
-                    setColor('GREEN')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -613,16 +602,15 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'CORNERS_COLOR/ORANGE',
                     payload: {
                       cornersColorsParts: ['Corners_base', 'Corners_cover'],
                       cornersColor: 'Chrome SATIN BURNT ORANGE',
                     },
-                  }),
-                    setColor('ORANGE')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -652,7 +640,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
             <SwiperSlide className='flex justify-center items-center'>
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'HANDLES_COLOR/BLACK',
                     payload: {
@@ -663,9 +651,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       handlesColor: 'Chrome MIDNIGHT BLACK',
                     },
-                  }),
-                    setColor('BLACK')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -719,7 +706,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'HANDLES_COLOR/RED',
                     payload: {
@@ -730,9 +717,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       handlesColor: 'Chrome CHERRY RED',
                     },
-                  }),
-                    setColor('RED')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -779,7 +765,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'HANDLES_COLOR/BLUE',
                     payload: {
@@ -790,9 +776,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       handlesColor: 'Chrome ROYAL BLUE',
                     },
-                  }),
-                    setColor('BLUE')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -821,7 +806,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
             </SwiperSlide>
             <SwiperSlide className='flex justify-center items-center'>
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'HANDLES_COLOR/ALUMINIUM',
                     payload: {
@@ -832,9 +817,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       handlesColor: 'Chrome ALUMINIUM',
                     },
-                  }),
-                    setColor('ALUMINIUM')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -861,7 +845,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'HANDLES_COLOR/GREEN',
                     payload: {
@@ -872,9 +856,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       handlesColor: 'Chrome SATIN OLIVE GREEN',
                     },
-                  }),
-                    setColor('GREEN')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -903,7 +886,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'HANDLES_COLOR/ORANGE',
                     payload: {
@@ -914,9 +897,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       handlesColor: 'Chrome SATIN BURNT ORANGE',
                     },
-                  }),
-                    setColor('ORANGE')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -946,7 +928,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
             <SwiperSlide className='flex justify-center items-center'>
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'WHEELS_COLOR/BLACK',
                     payload: {
@@ -964,9 +946,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       wheelsColor: 'Chrome MIDNIGHT BLACK',
                     },
-                  }),
-                    setColor('BLACK')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -1020,7 +1001,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'WHEELS_COLOR/RED',
                     payload: {
@@ -1038,9 +1019,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       wheelsColor: 'Chrome CHERRY RED',
                     },
-                  }),
-                    setColor('RED')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -1087,7 +1067,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
               )} flex justify-center items-center`}
             >
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'WHEELS_COLOR/BLUE',
                     payload: {
@@ -1105,9 +1085,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       wheelsColor: 'Chrome ROYAL BLUE',
                     },
-                  }),
-                    setColor('BLUE')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -1136,7 +1115,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
             </SwiperSlide>
             <SwiperSlide className='flex justify-center items-center'>
               <button
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'WHEELS_COLOR/ALUMINIUM',
                     payload: {
@@ -1154,9 +1133,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       wheelsColor: 'Chrome ALUMINIUM',
                     },
-                  }),
-                    setColor('ALUMINIUM')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -1182,7 +1160,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                   state,
                   'GREEN'
                 )} flex justify-center items-center`}
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'WHEELS_COLOR/GREEN',
                     payload: {
@@ -1200,9 +1178,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       wheelsColor: 'Chrome SATIN OLIVE GREEN',
                     },
-                  }),
-                    setColor('GREEN')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'
@@ -1230,7 +1207,7 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                   state,
                   'ORANGE'
                 )} flex justify-center items-center`}
-                onClick={() => {
+                onClick={() =>
                   dispatch({
                     type: 'WHEELS_COLOR/ORANGE',
                     payload: {
@@ -1248,9 +1225,8 @@ export const Carousel = ({ setColor, color, cta }: Props) => {
                       ],
                       wheelsColor: 'Chrome SATIN BURNT ORANGE',
                     },
-                  }),
-                    setColor('ORANGE')
-                }}
+                  })
+                }
               >
                 <svg
                   width='56'

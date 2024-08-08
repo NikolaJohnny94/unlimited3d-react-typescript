@@ -1,551 +1,600 @@
 import { initialState } from './initialState'
-import getLastTriggeredBy from './helpers/getLastTriggeredBy'
+import { changeColor } from '../../utils'
+import {
+  setLastTriggeredBy,
+  setInitialComponent,
+  setColorSelected,
+} from './helpers'
+
+// const resetColor = (
+//   colorSelected: string,
+//   cta: string,
+//   initialComponent: string | null
+// ) => {
+//   let newObj: any = {}
+//   if (initialComponent) {
+//     const ctas = [
+//       'BODY_COLOR',
+//       'WHEELS_COLOR',
+//       'CORNERS_COLOR',
+//       'HANDLES_COLOR',
+//     ]
+//     const otherCtas: string[] = ctas.filter(
+//       (cta: string) => cta !== initialComponent
+//     )
+//     console.log(otherCtas)
+//     const returnOtherCtas = () => {
+//       otherCtas.forEach((cta: string) => ({
+//         [`${cta.split('_')[0].toLowerCase()}`]: 'ALUMINIUM',
+//       }))
+//     }
+
+//     otherCtas.forEach((cta: string) => ({
+//       [`${cta.split('_')[0].toLowerCase()}`]: 'ALUMINIUM',
+//     }))
+//     newObj = {}
+//     newObj = {
+//       [initialComponent.split('_')[0].toLowerCase()]: colorSelected,
+//       returnOtherCtas()
+//     }
+//   }
+//   return newObj
+// }
+
+const resetColor = (initialComponent: string | null, colorSelected: string) => {
+  switch (initialComponent) {
+    case 'BODY_COLOR':
+      return {
+        body: colorSelected,
+        handles: 'ALUMINIUM',
+        corners: 'ALUMINIUM',
+        wheels: 'ALUMINIUM',
+      }
+    case 'CORNERS_COLOR':
+      return {
+        body: 'ALUMINIUM',
+        handles: 'ALUMINIUM',
+        corners: colorSelected,
+        wheels: 'ALUMINIUM',
+      }
+    case 'HANDLES_COLOR':
+      return {
+        body: 'ALUMINIUM',
+        handles: 'ALUMINIUM',
+        corners: colorSelected,
+        wheels: 'ALUMINIUM',
+      }
+    case 'WHEELS_COLOR':
+      return {
+        body: 'ALUMINIUM',
+        handles: 'ALUMINIUM',
+        corners: 'ALUMINIUM',
+        wheels: colorSelected,
+      }
+    default: {
+      return {
+        body: 'ALUMINIUM',
+        handles: 'ALUMINIUM',
+        corners: 'ALUMINIUM',
+        wheels: 'ALUMINIUM',
+      }
+    }
+  }
+}
 
 export const colorsReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case 'BODY_COLOR/ALUMINIUM':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.bodyColorsParts,
-            material: action.payload.bodyColor,
-          },
-        ],
-      })
+    case 'RESET_COLORS':
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: resetColor(state.initialComponent, state.colorSelected),
+      }
+    case 'BODY_COLOR/ALUMINIUM':
+      changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
+      return {
+        ...state,
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          body: 'ALUMINIUM',
+        },
       }
     case 'BODY_COLOR/BLACK':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.bodyColorsParts,
-            material: action.payload.bodyColor,
-          },
-        ],
-      })
+      changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          body: 'BLACK',
+        },
       }
     case 'BODY_COLOR/RED':
-      console.log(state.colorSelected !== action.type.split('/')[1])
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.bodyColorsParts,
-            material: action.payload.bodyColor,
-          },
-        ],
-      })
+      changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          body: 'RED',
+        },
       }
 
     case 'BODY_COLOR/BLUE':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.bodyColorsParts,
-            material: action.payload.bodyColor,
-          },
-        ],
-      })
+      changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          body: 'BLUE',
+        },
       }
     case 'BODY_COLOR/GREEN':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.bodyColorsParts,
-            material: action.payload.bodyColor,
-          },
-        ],
-      })
+      changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          body: 'GREEN',
+        },
       }
 
     case 'BODY_COLOR/ORANGE':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.bodyColorsParts,
-            material: action.payload.bodyColor,
-          },
-        ],
-      })
-
+      changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          body: 'ORANGE',
+        },
       }
 
     //Corners
     case 'CORNERS_COLOR/ALUMINIUM':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.cornersColorsParts,
-            material: action.payload.cornersColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.cornersColorsParts,
+        action.payload.cornersColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          corners: 'ALUMINIUM',
+        },
       }
     case 'CORNERS_COLOR/BLACK':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.cornersColorsParts,
-            material: action.payload.cornersColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.cornersColorsParts,
+        action.payload.cornersColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          corners: 'BLACK',
+        },
       }
     case 'CORNERS_COLOR/RED':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.cornersColorsParts,
-            material: action.payload.cornersColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.cornersColorsParts,
+        action.payload.cornersColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          corners: 'RED',
+        },
       }
 
     case 'CORNERS_COLOR/BLUE':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.cornersColorsParts,
-            material: action.payload.cornersColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.cornersColorsParts,
+        action.payload.cornersColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          corners: 'BLUE',
+        },
       }
     case 'CORNERS_COLOR/GREEN':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.cornersColorsParts,
-            material: action.payload.cornersColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.cornersColorsParts,
+        action.payload.cornersColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          corners: 'GREEN',
+        },
       }
 
     case 'CORNERS_COLOR/ORANGE':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.cornersColorsParts,
-            material: action.payload.cornersColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.cornersColorsParts,
+        action.payload.cornersColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          corners: 'ORANGE',
+        },
       }
     //wheels
     case 'WHEELS_COLOR/ALUMINIUM':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.wheelsColorsParts,
-            material: action.payload.wheelsColor,
-          },
-        ],
-      })
+      changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          wheels: 'ALUMINIUM',
+        },
       }
     case 'WHEELS_COLOR/BLACK':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.wheelsColorsParts,
-            material: action.payload.wheelsColor,
-          },
-        ],
-      })
+      changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          wheels: 'BLACK',
+        },
       }
     case 'WHEELS_COLOR/RED':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.wheelsColorsParts,
-            material: action.payload.wheelsColor,
-          },
-        ],
-      })
+      changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          wheels: 'RED',
+        },
       }
 
     case 'WHEELS_COLOR/BLUE':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.wheelsColorsParts,
-            material: action.payload.wheelsColor,
-          },
-        ],
-      })
+      changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          wheels: 'BLUE',
+        },
       }
     case 'WHEELS_COLOR/GREEN':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.wheelsColorsParts,
-            material: action.payload.wheelsColor,
-          },
-        ],
-      })
+      changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          wheels: 'GREEN',
+        },
       }
 
     case 'WHEELS_COLOR/ORANGE':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.wheelsColorsParts,
-            material: action.payload.wheelsColor,
-          },
-        ],
-      })
+      changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          wheels: 'ORANGE',
+        },
       }
 
     //handles
     case 'HANDLES_COLOR/ALUMINIUM':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.handlesColorsParts,
-            material: action.payload.handlesColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.handlesColorsParts,
+        action.payload.handlesColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          handles: 'ALUMINIUM',
+        },
       }
     case 'HANDLES_COLOR/BLACK':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.handlesColorsParts,
-            material: action.payload.handlesColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.handlesColorsParts,
+        action.payload.handlesColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          handles: 'BLACK',
+        },
       }
     case 'HANDLES_COLOR/RED':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.handlesColorsParts,
-            material: action.payload.handlesColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.handlesColorsParts,
+        action.payload.handlesColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          handles: 'RED',
+        },
       }
 
     case 'HANDLES_COLOR/BLUE':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.handlesColorsParts,
-            material: action.payload.handlesColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.handlesColorsParts,
+        action.payload.handlesColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          handles: 'BLUE',
+        },
       }
     case 'HANDLES_COLOR/GREEN':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.handlesColorsParts,
-            material: action.payload.handlesColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.handlesColorsParts,
+        action.payload.handlesColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          handles: 'GREEN',
+        },
       }
 
     case 'HANDLES_COLOR/ORANGE':
-      Unlimited3D.changeMaterials({
-        partObjects: [
-          {
-            parts: action.payload.handlesColorsParts,
-            material: action.payload.handlesColor,
-          },
-        ],
-      })
+      changeColor(
+        action.payload.handlesColorsParts,
+        action.payload.handlesColor
+      )
       return {
         ...state,
-        initialComponent:
-          state.initialComponent === null
-            ? (action.type.split('/')[0] as string)
-            : state.initialComponent,
-        colorSelected:
-          state.initialComponent === null ||
-          action.type.split('/')[0] === state.initialComponent
-            ? (action.type.split('/')[1] as string)
-            : state.colorSelected,
-        lastTriggeredBy: getLastTriggeredBy(state.lastTriggeredBy, action.type),
+        initialComponent: setInitialComponent(
+          state.initialComponent,
+          action.type
+        ),
+        colorSelected: setColorSelected(
+          state.initialComponent,
+          state.colorSelected,
+          action.type
+        ),
+        lastTriggeredBy: setLastTriggeredBy(state.lastTriggeredBy, action.type),
+        colors: {
+          ...state.colors,
+          handles: 'ORANGE',
+        },
       }
+
     default:
       return state
   }

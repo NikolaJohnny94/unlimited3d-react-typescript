@@ -1,21 +1,19 @@
-import { BodyColor, Corners, Handles, Wheels } from '.'
 import { useColorsContext } from '../context/colors/ColorsContext'
+import { Card } from './card/Card'
 
 export const RenderSelectedCTA = () => {
   const { currentCTA } = useColorsContext()
 
   switch (currentCTA) {
     case 'body':
-      return <BodyColor />
+      return <Card cta='BODY' />
     case 'corners':
-      return <Corners />
+      return <Card cta='CORNERS' />
     case 'wheels':
-      return <Wheels />
+      return <Card cta='WHEELS' />
     case 'handles':
-      return <Handles />
+      return <Card cta='HANDLES' />
     case null:
-      return null
-    default:
       return null
   }
 }
