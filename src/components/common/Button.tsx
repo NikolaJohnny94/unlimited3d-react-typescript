@@ -1,7 +1,7 @@
 import { useColorsContext } from '@/context/colors/ColorsContext'
 import { SVG } from './SVG'
 import { showSpecificColors } from '@/utils'
-import { colors, parts } from '@/consts'
+import { colorVariants, modelParts } from '@/consts'
 import { Colors, CTA } from '@/enums'
 import type { FC } from 'react'
 
@@ -18,23 +18,23 @@ export const Button: FC<Props> = ({ cta, color, currentColor }) => {
     switch (cta) {
       case CTA.BODY:
         return {
-          bodyColorsParts: parts.body,
-          bodyColor: colors.body[color.toLowerCase()],
+          bodyColorsParts: modelParts.body,
+          bodyColor: colorVariants.body[color.toLowerCase()],
         }
       case CTA.HANDLES:
         return {
-          handlesColorsParts: parts.handles,
-          handlesColor: colors.other[color.toLowerCase()],
+          handlesColorsParts: modelParts.handles,
+          handlesColor: colorVariants.other[color.toLowerCase()],
         }
       case CTA.CORNERS:
         return {
-          cornersColorsParts: parts.corners,
-          cornersColor: colors.other[color.toLowerCase()],
+          cornersColorsParts: modelParts.corners,
+          cornersColor: colorVariants.other[color.toLowerCase()],
         }
       case CTA.WHEELS:
         return {
-          wheelsColorsParts: parts.wheels,
-          wheelsColor: colors.other[color.toLowerCase()],
+          wheelsColorsParts: modelParts.wheels,
+          wheelsColor: colorVariants.other[color.toLowerCase()],
         }
     }
   }

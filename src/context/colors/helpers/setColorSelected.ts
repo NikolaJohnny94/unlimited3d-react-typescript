@@ -1,8 +1,8 @@
-import { Colors } from '@/enums/Colors.enum'
 import {
   extractColor,
   extractCta,
 } from './subHelpers/extractingValuesFromActionType'
+import { Colors } from '@/enums/Colors.enum'
 
 export const setColorSelected = (
   initialComponent: string | null,

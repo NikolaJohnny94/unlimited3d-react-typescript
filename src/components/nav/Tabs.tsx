@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useColorsContext } from '../../context/colors/ColorsContext'
 import {
-  defaultCameraModifier,
+  setDefaultCameraModifier,
   hideAnnotations,
   showAnnotations,
 } from '../../utils'
@@ -63,7 +63,7 @@ export const Tabs = () => {
               'Wheel spinner off',
             ]),
               setShowCtas(true),
-              defaultCameraModifier(
+              setDefaultCameraModifier(
                 largeOrGreaterScreen ? 'desktop' : 'mobile'
               ),
               setCurrentCTA(null),
@@ -85,7 +85,7 @@ export const Tabs = () => {
           onClick={() => {
             showAnnotations(['Open', 'Extend handle', 'Wheel spinner on']),
               setShowCtas(false),
-              defaultCameraModifier(
+              setDefaultCameraModifier(
                 largeOrGreaterScreen ? 'desktop' : 'mobile'
               ),
               setCurrentCTA(null),

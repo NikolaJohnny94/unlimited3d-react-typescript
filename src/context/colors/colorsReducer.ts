@@ -1,31 +1,21 @@
 import { initialState } from './initialState'
-import { changeColor } from '../../utils'
 import {
   setLastTriggeredBy,
   setInitialComponent,
   setColorSelected,
   resetColors,
 } from './helpers'
-import { Colors } from '@/enums/Colors.enum'
+import { changeColor } from '@/utils'
+import {
+  Colors,
+  ActionTypeWithPayload,
+  ActionTypeWithoutPayload,
+} from '@/enums'
+import type { Action } from '@/types'
 
-// type Actions = {
-//   type: string
-
-//   payload?: {
-//     bodyColorsParts: string[]
-//     bodyColor: string
-//     cornersColorsParts: string[]
-//     cornersColor: string
-//     handlesColorsParts: string[]
-//     handlesColor: string
-//     wheelsColorsParts: string[]
-//     wheelsColor: string
-//   }
-// }
-
-export const colorsReducer = (state = initialState, action: any) => {
+export const colorsReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'BODY_COLOR/ALUMINIUM':
+    case ActionTypeWithPayload.BODY_COLOR_ALUMINIUM:
       changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
@@ -44,7 +34,8 @@ export const colorsReducer = (state = initialState, action: any) => {
           body: Colors.ALUMINIUM,
         },
       }
-    case 'BODY_COLOR/BLACK':
+
+    case ActionTypeWithPayload.BODY_COLOR_BLACK:
       changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
@@ -63,7 +54,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           body: Colors.BLACK,
         },
       }
-    case 'BODY_COLOR/RED':
+    case ActionTypeWithPayload.BODY_COLOR_RED:
       changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
@@ -83,7 +74,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
 
-    case 'BODY_COLOR/BLUE':
+    case ActionTypeWithPayload.BODY_COLOR_BLUE:
       changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
@@ -102,7 +93,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           body: Colors.BLUE,
         },
       }
-    case 'BODY_COLOR/GREEN':
+    case ActionTypeWithPayload.BODY_COLOR_GREEN:
       changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
@@ -122,7 +113,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
 
-    case 'BODY_COLOR/ORANGE':
+    case ActionTypeWithPayload.BODY_COLOR_ORANGE:
       changeColor(action.payload.bodyColorsParts, action.payload.bodyColor)
       return {
         ...state,
@@ -143,7 +134,7 @@ export const colorsReducer = (state = initialState, action: any) => {
       }
 
     //Corners
-    case 'CORNERS_COLOR/ALUMINIUM':
+    case ActionTypeWithPayload.CORNERS_COLOR_ALUMINIUM:
       changeColor(
         action.payload.cornersColorsParts,
         action.payload.cornersColor
@@ -165,7 +156,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           corners: Colors.ALUMINIUM,
         },
       }
-    case 'CORNERS_COLOR/BLACK':
+    case ActionTypeWithPayload.CORNERS_COLOR_BLACK:
       changeColor(
         action.payload.cornersColorsParts,
         action.payload.cornersColor
@@ -187,7 +178,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           corners: Colors.BLACK,
         },
       }
-    case 'CORNERS_COLOR/RED':
+    case ActionTypeWithPayload.CORNERS_COLOR_RED:
       changeColor(
         action.payload.cornersColorsParts,
         action.payload.cornersColor
@@ -210,7 +201,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
 
-    case 'CORNERS_COLOR/BLUE':
+    case ActionTypeWithPayload.CORNERS_COLOR_BLUE:
       changeColor(
         action.payload.cornersColorsParts,
         action.payload.cornersColor
@@ -232,7 +223,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           corners: Colors.BLUE,
         },
       }
-    case 'CORNERS_COLOR/GREEN':
+    case ActionTypeWithPayload.CORNERS_COLOR_GREEN:
       changeColor(
         action.payload.cornersColorsParts,
         action.payload.cornersColor
@@ -255,7 +246,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
 
-    case 'CORNERS_COLOR/ORANGE':
+    case ActionTypeWithPayload.CORNERS_COLOR_ORANGE:
       changeColor(
         action.payload.cornersColorsParts,
         action.payload.cornersColor
@@ -278,7 +269,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
     //wheels
-    case 'WHEELS_COLOR/ALUMINIUM':
+    case ActionTypeWithPayload.WHEELS_COLOR_ALUMINIUM:
       changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
@@ -297,7 +288,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           wheels: Colors.ALUMINIUM,
         },
       }
-    case 'WHEELS_COLOR/BLACK':
+    case ActionTypeWithPayload.WHEELS_COLOR_BLACK:
       changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
@@ -316,7 +307,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           wheels: Colors.BLACK,
         },
       }
-    case 'WHEELS_COLOR/RED':
+    case ActionTypeWithPayload.WHEELS_COLOR_RED:
       changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
@@ -336,7 +327,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
 
-    case 'WHEELS_COLOR/BLUE':
+    case ActionTypeWithPayload.WHEELS_COLOR_BLUE:
       changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
@@ -355,7 +346,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           wheels: Colors.BLUE,
         },
       }
-    case 'WHEELS_COLOR/GREEN':
+    case ActionTypeWithPayload.WHEELS_COLOR_GREEN:
       changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
@@ -375,7 +366,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
 
-    case 'WHEELS_COLOR/ORANGE':
+    case ActionTypeWithPayload.WHEELS_COLOR_ORANGE:
       changeColor(action.payload.wheelsColorsParts, action.payload.wheelsColor)
       return {
         ...state,
@@ -396,7 +387,7 @@ export const colorsReducer = (state = initialState, action: any) => {
       }
 
     //handles
-    case 'HANDLES_COLOR/ALUMINIUM':
+    case ActionTypeWithPayload.HANDLES_COLOR_ALUMINIUM:
       changeColor(
         action.payload.handlesColorsParts,
         action.payload.handlesColor
@@ -418,7 +409,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           handles: Colors.ALUMINIUM,
         },
       }
-    case 'HANDLES_COLOR/BLACK':
+    case ActionTypeWithPayload.HANDLES_COLOR_BLACK:
       changeColor(
         action.payload.handlesColorsParts,
         action.payload.handlesColor
@@ -440,7 +431,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           handles: Colors.BLACK,
         },
       }
-    case 'HANDLES_COLOR/RED':
+    case ActionTypeWithPayload.HANDLES_COLOR_RED:
       changeColor(
         action.payload.handlesColorsParts,
         action.payload.handlesColor
@@ -463,7 +454,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
 
-    case 'HANDLES_COLOR/BLUE':
+    case ActionTypeWithPayload.HANDLES_COLOR_BLUE:
       changeColor(
         action.payload.handlesColorsParts,
         action.payload.handlesColor
@@ -485,7 +476,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           handles: Colors.BLUE,
         },
       }
-    case 'HANDLES_COLOR/GREEN':
+    case ActionTypeWithPayload.HANDLES_COLOR_GREEN:
       changeColor(
         action.payload.handlesColorsParts,
         action.payload.handlesColor
@@ -508,7 +499,7 @@ export const colorsReducer = (state = initialState, action: any) => {
         },
       }
 
-    case 'HANDLES_COLOR/ORANGE':
+    case ActionTypeWithPayload.HANDLES_COLOR_ORANGE:
       changeColor(
         action.payload.handlesColorsParts,
         action.payload.handlesColor
@@ -530,7 +521,7 @@ export const colorsReducer = (state = initialState, action: any) => {
           handles: Colors.ORANGE,
         },
       }
-    case 'RESET_COLORS':
+    case ActionTypeWithoutPayload.RESET_COLORS:
       return {
         ...state,
         colors: resetColors(state.initialComponent, state.colorSelected),

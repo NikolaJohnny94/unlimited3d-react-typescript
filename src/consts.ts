@@ -15,7 +15,7 @@ type ColorKeys = {
   }
 }
 
-export const colors: ColorKeys = {
+export const colorVariants: ColorKeys = {
   body: {
     blue: '01 CHROME SATIN ROYAL BLUE',
     green: '02 CHROME SATIN OLIVE GREEN',
@@ -34,7 +34,14 @@ export const colors: ColorKeys = {
   },
 }
 
-export const parts = {
+type ModelParts = {
+  body: string[]
+  handles: string[]
+  corners: string[]
+  wheels: string[]
+}
+
+export const modelParts: ModelParts = {
   body: ['Body_metal_base', 'Body_metal_cover'],
   handles: ['Handle_base1', 'Handle_metal-1', 'Handle_telescope-1'],
   corners: ['Corners_base', 'Corners_cover'],

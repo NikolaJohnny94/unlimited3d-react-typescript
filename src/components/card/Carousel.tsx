@@ -1,18 +1,19 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useColorsContext } from '@/context/colors/ColorsContext'
 import { showSpecificColors } from '@/utils'
+import { CTA } from '@/enums'
 import 'swiper/css'
 
 type Props = {
   color: string
-  cta: string
+  cta: CTA
 }
 
 export const Carousel = ({ color, cta }: Props) => {
   const { state, dispatch } = useColorsContext()
 
   switch (cta) {
-    case 'body':
+    case CTA.BODY:
       return (
         <div className='visible lg:hidden xl:hidden px-6'>
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
@@ -368,7 +369,7 @@ export const Carousel = ({ color, cta }: Props) => {
           </Swiper>
         </div>
       )
-    case 'corners':
+    case CTA.CORNERS:
       return (
         <div className='visible lg:hidden xl:hidden px-6'>
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
@@ -632,7 +633,7 @@ export const Carousel = ({ color, cta }: Props) => {
           </Swiper>
         </div>
       )
-    case 'handles':
+    case CTA.HANDLES:
       return (
         <div className='visible lg:hidden xl:hidden px-6'>
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>
@@ -920,7 +921,7 @@ export const Carousel = ({ color, cta }: Props) => {
           </Swiper>
         </div>
       )
-    case 'wheels':
+    case CTA.WHEELS:
       return (
         <div className='visible lg:hidden xl:hidden px-6'>
           <Swiper slidesPerView={5.5} spaceBetween={30} className='mySwiper'>

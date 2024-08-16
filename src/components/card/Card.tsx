@@ -1,6 +1,6 @@
 import { type FC, useEffect } from 'react'
 import { useColorsContext } from '@/context/colors/ColorsContext'
-import { cameraModifier, closeColorPanel } from '@/utils'
+import { setCameraModifier, closeColorPanel } from '@/utils'
 import {
   CardHeading,
   ColorButtons,
@@ -19,7 +19,7 @@ export const Card: FC<Props> = ({ cta }) => {
   const { state, largeOrGreaterScreen, setCurrentCTA } = useColorsContext()
 
   useEffect(() => {
-    cameraModifier(cta.toLowerCase())
+    setCameraModifier(cta)
   }, [cta])
 
   const closePanel = () => {
@@ -37,7 +37,7 @@ export const Card: FC<Props> = ({ cta }) => {
       {/* Colors */}
       <ColorButtons cta={cta} currentColor={setColor(state, cta)} />
       {/* Mobile carousel */}
-      <Carousel color={setColor(state, cta)} cta={cta.toLowerCase()} />
+      <Carousel color={setColor(state, cta)} cta={cta} />
       {/* Image/No Image component */}
       {cta === CTA.BODY && <ImageNoImageComponent />}
       <NextAndPreviousButtons setCurrentCTA={setCurrentCTA} cta={cta} />

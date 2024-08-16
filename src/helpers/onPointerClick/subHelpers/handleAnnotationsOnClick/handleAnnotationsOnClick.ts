@@ -1,37 +1,38 @@
-import { hideAnnotations, changeAnnotationIcon } from './subHelpers'
-import { showAnnotations } from '../../../../utils'
+import { hideAnnotations, changeAnnotationIcon } from './sub_helpers'
+import { showAnnotations } from '@/utils'
+import { Annotations } from '@/enums'
 
 const handleAnnotationsOnClick = (annotationClicked: string) => {
   switch (annotationClicked) {
-    case 'Open':
-      showAnnotations(['Close'])
-      hideAnnotations('Open')
-      changeAnnotationIcon('Close')
+    case Annotations.OPEN:
+      showAnnotations([Annotations.CLOSE])
+      hideAnnotations(Annotations.OPEN)
+      changeAnnotationIcon(Annotations.CLOSE)
       break
-    case 'Close':
-      showAnnotations(['Open'])
-      hideAnnotations('Close')
-      changeAnnotationIcon('Open')
+    case Annotations.CLOSE:
+      showAnnotations([Annotations.OPEN])
+      hideAnnotations(Annotations.CLOSE)
+      changeAnnotationIcon(Annotations.OPEN)
       break
-    case 'Wheel spinner on':
-      showAnnotations(['Wheel spinner off'])
-      hideAnnotations('Wheel spinner on')
-      changeAnnotationIcon('Wheel spinner off')
+    case Annotations.WHEEL_SPINNER_ON:
+      showAnnotations([Annotations.WHEEL_SPINNER_OFF])
+      hideAnnotations(Annotations.WHEEL_SPINNER_ON)
+      changeAnnotationIcon(Annotations.WHEEL_SPINNER_OFF)
       break
-    case 'Wheel spinner off':
-      showAnnotations(['Wheel spinner on'])
-      hideAnnotations('Wheel spinner off')
-      changeAnnotationIcon('Wheel spinner on')
+    case Annotations.WHEEL_SPINNER_OFF:
+      showAnnotations([Annotations.WHEEL_SPINNER_ON])
+      hideAnnotations(Annotations.WHEEL_SPINNER_OFF)
+      changeAnnotationIcon(Annotations.WHEEL_SPINNER_ON)
       break
-    case 'Extend handle':
-      showAnnotations(['Retract handle'])
-      hideAnnotations('Extend handle')
-      changeAnnotationIcon('Retract handle')
+    case Annotations.EXTEND_HANDLE:
+      showAnnotations([Annotations.RETRACT_HANDLE])
+      hideAnnotations(Annotations.EXTEND_HANDLE)
+      changeAnnotationIcon(Annotations.RETRACT_HANDLE)
       break
-    case 'Retract handle':
-      showAnnotations(['Extend handle'])
-      hideAnnotations('Retract handle')
-      changeAnnotationIcon('Extend handle')
+    case Annotations.RETRACT_HANDLE:
+      showAnnotations([Annotations.EXTEND_HANDLE])
+      hideAnnotations(Annotations.RETRACT_HANDLE)
+      changeAnnotationIcon(Annotations.EXTEND_HANDLE)
       break
   }
 }

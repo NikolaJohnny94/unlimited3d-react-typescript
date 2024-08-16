@@ -4,7 +4,7 @@ import { ColorsContext } from './ColorsContext'
 import { colorsReducer } from './colorsReducer'
 import { initialState } from './initialState'
 import { changeColor } from '@/utils'
-import { parts, colors } from '@/consts'
+import { modelParts, colorVariants } from '@/consts'
 import { CTA } from '@/enums'
 import { RESET_COLORS } from './types'
 import type { ColorVariants } from '@/types'
@@ -27,7 +27,10 @@ export const ColorsProvider = ({ children }: Props) => {
         state.initialComponent !== 'BODY_COLOR' &&
         state.lastTriggeredBy.includes('BODY_COLOR')
       ) {
-        changeColor(parts.body, (colors as ColorVariants).body.aluminium)
+        changeColor(
+          modelParts.body,
+          (colorVariants as ColorVariants).body.aluminium
+        )
         dispatch({ type: RESET_COLORS })
       }
 
@@ -35,7 +38,10 @@ export const ColorsProvider = ({ children }: Props) => {
         state.initialComponent !== 'CORNERS_COLOR' &&
         state.lastTriggeredBy.includes('CORNERS_COLOR')
       ) {
-        changeColor(parts.corners, (colors as ColorVariants).other.aluminium)
+        changeColor(
+          modelParts.corners,
+          (colorVariants as ColorVariants).other.aluminium
+        )
         dispatch({ type: RESET_COLORS })
       }
 
@@ -43,7 +49,10 @@ export const ColorsProvider = ({ children }: Props) => {
         state.initialComponent !== 'HANDLES_COLOR' &&
         state.lastTriggeredBy.includes('HANDLES_COLOR')
       ) {
-        changeColor(parts.handles, (colors as ColorVariants).other.aluminium)
+        changeColor(
+          modelParts.handles,
+          (colorVariants as ColorVariants).other.aluminium
+        )
         dispatch({ type: RESET_COLORS })
       }
 
@@ -51,7 +60,10 @@ export const ColorsProvider = ({ children }: Props) => {
         state.initialComponent !== 'WHEELS_COLOR' &&
         state.lastTriggeredBy.includes('WHEELS_COLOR')
       ) {
-        changeColor(parts.wheels, (colors as ColorVariants).other.aluminium)
+        changeColor(
+          modelParts.wheels,
+          (colorVariants as ColorVariants).other.aluminium
+        )
         dispatch({ type: RESET_COLORS })
       }
     }

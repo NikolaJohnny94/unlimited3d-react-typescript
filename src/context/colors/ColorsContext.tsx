@@ -1,5 +1,4 @@
-import { createContext, useContext, type Dispatch } from 'react'
-
+import { createContext, useContext, Dispatch } from 'react'
 import type { ColorsState } from '../../types/ColorsState.type'
 import { CTA } from '@/enums'
 
