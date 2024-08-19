@@ -8,4 +8,5 @@ export const closeColorPanel = (
 ) => {
   setDefaultCameraModifier(largeOrGreaterScreen ? 'desktop' : 'mobile')
   setCurrentCTA(null)
+  localStorage.setItem('cta', '')
 }

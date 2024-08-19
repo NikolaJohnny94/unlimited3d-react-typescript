@@ -1,3 +1,6 @@
 export * from './onPointerClick/onPointerClick'
 export * from './setColor'
 export * from './setNextAndPrevButtons'
+export * from './handleLocalStorageAnnotationsModifier'
+export * from './activateAnimationModifierBasedOnLocalStorage'
+export * from './getLastViewedCta'

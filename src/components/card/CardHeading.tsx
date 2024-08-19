@@ -17,6 +17,7 @@ export const CardHeading: FC<Props> = ({ cta, color, closeColorPanel }) => {
         <button
           className='text-black text-base font-normal leading-normal scale-100 transition active:scale-90 delay-75'
           onClick={closeColorPanel}
+          title='Close'
         >
           <SVG name='X' />
         </button>

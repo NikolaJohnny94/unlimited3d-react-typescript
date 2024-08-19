@@ -13,7 +13,7 @@ export const NextAndPreviousButtons: FC<Props> = ({ cta, setCurrentCTA }) => {
     <>
       <div
         className={`flex justify-between p-6 lg:px-6 lg:py-10  xl:px-6 xl:py-10 ${
-          cta === CTA.BODY ? '' : 'mt-[120px] lg:mt-[208px] xl:mt-[208px]'
+          cta === CTA.BODY ? '' : 'mt-[120px] lg:mt-[120px] xl:mt-[120px]'
         }`}
       >
         <button

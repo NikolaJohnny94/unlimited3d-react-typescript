@@ -1,44 +1,49 @@
 import { useState } from 'react'
-import { useColorsContext } from '../../context/colors/ColorsContext'
+import { useColorsContext } from '@/context/colors/ColorsContext'
 import {
   setDefaultCameraModifier,
   hideAnnotations,
   showAnnotations,
-} from '../../utils'
-import handleAnnotationsOnClick from '../../helpers/onPointerClick/subHelpers/handleAnnotationsOnClick/handleAnnotationsOnClick'
+} from '@/utils'
+import {
+  activateAnimationModifierBasedOnLocalStorage as activateAnimationModifier,
+  getLastViewedCta,
+} from '@/helpers'
+import { Annotations } from '@/enums'
 
 export const Tabs = () => {
   const { largeOrGreaterScreen, setShowCtas, setCurrentCTA } =
     useColorsContext()
   const [activeTab, setActiveTab] = useState('configurator')
 
-  const handleLocalStorageAnnotationsModifier = () => {
-    switch (localStorage.getItem('modifierTriggered')) {
-      case 'Extend handle':
-        return 'handle_open'
-      case 'Retract handle':
-        return 'handle_close'
-      case 'Open':
-        return 'open'
-      case 'Close':
-        return 'close'
-      case 'Wheel spinner on':
-        return 'wheel_spinner_on'
-      case 'Wheel spinner off':
-        return 'wheel_spinner_off'
-    }
+  const showConfiguratorTab = () => {
+    hideAnnotations([
+      Annotations.OPEN,
+      Annotations.CLOSE,
+      Annotations.EXTEND_HANDLE,
+      Annotations.RETRACT_HANDLE,
+      Annotations.WHEEL_SPINNER_ON,
+      Annotations.WHEEL_SPINNER_OFF,
+    ])
+    setShowCtas(true)
+    setDefaultCameraModifier(largeOrGreaterScreen ? 'desktop' : 'mobile')
+
+    setCurrentCTA(getLastViewedCta())
+    setActiveTab('configurator')
   }
 
-  const activateAnimationModifier = () => {
-    Unlimited3D.activateModifier({
-      modifier: handleLocalStorageAnnotationsModifier(),
-    })
-    setTimeout(() => {
-      handleAnnotationsOnClick(
-        localStorage.getItem('modifierTriggered') as string
-      )
-    }, 0)
+  const showAnimationsTab = () => {
+    showAnnotations([
+      Annotations.OPEN,
+      Annotations.EXTEND_HANDLE,
+      Annotations.WHEEL_SPINNER_ON,
+    ])
+    setShowCtas(false)
+    setCurrentCTA(null)
+    setActiveTab('animations')
+    activateAnimationModifier()
   }
+
   return (
     <div
       id='tabs'
@@ -53,22 +58,7 @@ export const Tabs = () => {
       >
         <button
           className='text-[#121010] font-manrope lg:text-[18px] xl:text-[20px] font-normal leading-[0.909]'
-          onClick={() => {
-            hideAnnotations([
-              'Open',
-              'Close',
-              'Extend handle',
-              'Retract handle',
-              'Wheel spinner on',
-              'Wheel spinner off',
-            ]),
-              setShowCtas(true),
-              setDefaultCameraModifier(
-                largeOrGreaterScreen ? 'desktop' : 'mobile'
-              ),
-              setCurrentCTA(null),
-              setActiveTab('configurator')
-          }}
+          onClick={showConfiguratorTab}
           title='Configurator'
         >
           CONFIGURATOR
@@ -82,16 +72,7 @@ export const Tabs = () => {
       >
         <button
           className='text-[#121010] font-manrope text-[18px] lg:text-[20px] xl:text-[20px] font-normal leading-[0.909]'
-          onClick={() => {
-            showAnnotations(['Open', 'Extend handle', 'Wheel spinner on']),
-              setShowCtas(false),
-              setDefaultCameraModifier(
-                largeOrGreaterScreen ? 'desktop' : 'mobile'
-              ),
-              setCurrentCTA(null),
-              setActiveTab('animations'),
-              activateAnimationModifier()
-          }}
+          onClick={showAnimationsTab}
           title='Animations'
         >
           ANIMATIONS

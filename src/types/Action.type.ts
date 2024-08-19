@@ -1,7 +1,5 @@
 import { ActionTypeWithPayload } from '@/enums'
 
-type ActionWithoutPayloadType = 'RESET_COLORS'
-
 type Payload = {
   bodyColorsParts: string[]
   bodyColor: string
@@ -19,7 +17,7 @@ type ActionWithPayload = {
 }
 
 type ActionWithoutPayload = {
-  type: ActionWithoutPayloadType
+  type: 'RESET_COLORS'
 }
 
 export type Action = ActionWithPayload | ActionWithoutPayload
